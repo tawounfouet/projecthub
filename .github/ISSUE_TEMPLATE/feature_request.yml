@@ -1,0 +1,32 @@
+name: Product discovery / feature proposal
+description: Propose a non-sensitive product need or capability
+title: "[Discovery] "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not paste private pilot data, customer records, meeting transcripts, credentials or internal security findings."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the user problem, without exposing confidential data.
+      placeholder: "As a workspace member, I need ..."
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should improve for users?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Candidate acceptance criteria
+      description: How could this be verified?
+  - type: input
+    id: source
+    attributes:
+      label: Public source or requirement ID
+      description: Optional sanitized reference, never a confidential document path.
