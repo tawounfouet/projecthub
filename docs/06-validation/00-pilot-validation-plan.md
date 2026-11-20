@@ -160,7 +160,36 @@ Pour chaque expérience :
 8. consigner une version de logiciel, des anomalies et un verdict ;
 9. comparer aux méthodes existantes avant de décider de poursuivre.
 
-### 11.1 Critères à fixer avant une session
+### 11.1 Recherche utilisateur avant prototype
+
+La validation du problème et de la valeur précède les tests E0 du prototype. Elle répond d'abord à `PH-OPEN-007` (utilisateur et promesse), puis éclaire `PH-OPEN-001` (plus petit MVP utile) et `PH-OPEN-024` (valeur d'une passation).
+
+Suivre le [protocole proposé pour les personas](../02-discovery/00-stakeholders-and-personas.md#7-protocole-de-validation-proposé) : recruter des participants volontaires correspondant aux profils étudiés, obtenir les autorisations pertinentes et demander d'abord le récit d'une situation récente, sans présenter ProjectHub. Examiner la tâche réelle, le processus actuel, les solutions de contournement, les effets observables et les contre-exemples. Ne montrer un concept ou un prototype qu'après cette exploration ouverte. Une intention d'utiliser le produit ou une réaction positive à une démonstration ne valide pas à elle seule le problème.
+
+Définir à l'avance les profils recherchés, le nombre de sessions nécessaire à la décision et la règle d'interprétation ; ne pas prétendre à une représentativité statistique sans méthode adaptée. Les entretiens et leurs preuves ne sont **pas exécutés** par cette documentation. Leur état reste `NOT_RUN` jusqu'à des sessions autorisées et réellement consignées.
+
+Fiche de synthèse par hypothèse, à conserver dans un espace privé si elle contient des éléments issus d'une personne ou d'une organisation :
+
+```yaml
+study_id: DISC-STUDY-EXAMPLE-001
+question_ids: [PH-OPEN-007]
+status: NOT_RUN
+participant_segment: null
+selection_rationale: null
+authorization_reference: null
+method: null
+recent_situation: null
+current_workaround: null
+observed_effect: null
+evidence_for: []
+evidence_against: []
+limitations: null
+decision_ref: null
+```
+
+Le suffixe `EXAMPLE` indique un identifiant illustratif, pas une étude active. Ne pas publier de verbatim, identité, donnée personnelle ou détail organisationnel dans cette fiche publique ; ne partager qu'une synthèse autorisée et suffisamment agrégée.
+
+### 11.2 Critères à fixer avant une session
 
 Avant de recueillir des résultats, consigner pour chaque expérience :
 - l'hypothèse, la tâche, le profil participant (sans identité personnelle) et le jeu de données autorisé ;
@@ -175,7 +204,7 @@ Pour les contrôles d'accès, toute divulgation non autorisée constitue un éch
 
 Utiliser `NOT_RUN` avant toute session, `PASS` ou `FAIL` selon le critère fixé à l'avance, `INCONCLUSIVE` si les observations ne permettent pas de trancher et `NOT_ASSESSED` si le protocole ou les preuves sont insuffisants. Ces statuts décrivent une expérience, pas l'approbation globale du MVP ou d'un pilote.
 
-### 11.2 Lecture des résultats
+### 11.3 Lecture des résultats
 
 Les mesures candidates incluent le temps de recherche d'un Project, la complétude d'une mise à jour, l'effort de préparation d'une revue, l'autonomie de reprise et la lisibilité d'un export. Pour éviter les interprétations ambiguës, préciser avant la session comment chaque mesure sera relevée ; par exemple, pour une passation, indiquer l'action attendue et si l'aide du facilitateur est permise. Les résultats restent bornés au scénario, aux participants, aux données et à la version testés. Un résultat positif isolé ne vaut ni validation générale du besoin, ni approbation du MVP.
 
