@@ -4,6 +4,10 @@
 
 > Status: **Discovery**. This repository currently contains the public documentation foundation for **ProjectHub Discovery Baseline V1.0**. It is not yet a functional application.
 
+[![ProjectHub product vision - conceptual illustration](docs/01-product/assets/00-product-vision.png)](docs/01-product/00-product-vision.md)
+
+*ProjectHub product vision (concept illustration). [Explore the vision](docs/01-product/00-product-vision.md) or [browse the Product documentation](docs/01-product/README.md).*
+
 ## Product direction
 
 - **Organizations** own their data and define the primary security boundary.
