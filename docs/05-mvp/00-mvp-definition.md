@@ -121,6 +121,20 @@ Organization / Workspace autorisé
 
 Les parcours sont décrits dans [01-user-journeys.md](01-user-journeys.md). Les 62 critères d'acceptation du corpus privé restent **des conditions de test candidates non exécutées**.
 
+### Foyer de validation recommandé
+
+Pour la prochaine boucle de Discovery, examiner ces trois hypothèses avant d'étendre le backlog. Ce foyer est un ordre de recherche proposé, **pas** une décision de périmètre MVP :
+
+| Question ouverte | Parcours candidat | Observation recherchée |
+|---|---|---|
+| `PH-OPEN-007` — Quel utilisateur prioritaire et quelle promesse ? | `MVP-UJ-02` puis `MVP-UJ-03` | Situation récente, méthode actuelle, difficulté et résultat attendu pour qualifier une initiative et suivre une action |
+| `PH-OPEN-001` — Quel est le plus petit MVP utile ? | Enchaînement `MVP-UJ-02` → `MVP-UJ-03` | Vérifier si une fiche Project et une action suivie suffisent à accomplir une tâche concrète, puis documenter ce qui peut être exclu |
+| `PH-OPEN-024` — Comment démontrer une passation ? | `MVP-UJ-06` | Une personne distincte réalise une action définie ; noter le contexte nécessaire, l'aide reçue et les réserves |
+
+Conduire d'abord les entretiens sur des situations passées et les méthodes actuelles, puis tester un concept ou un prototype. Le protocole est décrit dans le [plan de validation](../06-validation/00-pilot-validation-plan.md#111-recherche-utilisateur-avant-prototype). Aucun échantillon, résultat ou seuil n'est présumé ; les preuves peuvent aussi contredire ces hypothèses.
+
+Les dix parcours, les treize capacités et les 45 items du backlog restent des **catalogues de référence candidats**, et non le périmètre du premier incrément. Ce foyer ne permet pas de reporter les contrôles obligatoires d'accès, de révocation, d'export et de permissions : ceux-ci restent des garde-fous E0/E1 à vérifier séparément.
+
 ## 8. Hors périmètre du premier incrément
 
 Ne pas assimiler les 13 domaines cibles à 13 modules entièrement développés. Sont différés :

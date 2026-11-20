@@ -95,7 +95,7 @@ La suite utile est de tester les hypothèses prioritaires, pas d'étendre les ca
 3. exécuter les scénarios E0 sur des données synthétiques, puis consigner aussi les échecs et résultats non concluants ;
 4. mettre à jour le périmètre MVP, le backlog et les décisions selon les preuves obtenues.
 
-Le [protocole de validation](06-validation/00-pilot-validation-plan.md#11-protocole-dobservation-et-de-mesure) précise les informations à fixer et à consigner. Aucun propriétaire de décision, seuil, résultat utilisateur ou accord de pilote n'est présumé par cette séquence. E1 reste No-Go tant que les autorisations et les huit gates ne sont pas prouvées.
+Le [foyer de validation proposé](05-mvp/00-mvp-definition.md#foyer-de-validation-recommandé) privilégie trois questions et des parcours précis ; il ne valide pas le MVP. Les grands catalogues d'exigences, de capacités et de backlog restent des références candidates, pas le périmètre à livrer d'un seul coup. Le [registre des questions ouvertes](00-context/04-open-questions.md#arbitrages-à-préparer-en-premier) indique les preuves attendues et les responsables encore à désigner. Le [protocole de validation](06-validation/00-pilot-validation-plan.md#11-protocole-dobservation-et-de-mesure) détaille les informations à fixer et à consigner. Aucun propriétaire de décision, seuil, résultat utilisateur ou accord de pilote n'est présumé ; E1 reste No-Go tant que les autorisations et les huit gates ne sont pas prouvées.
 
 ## Conventions documentaires
 
