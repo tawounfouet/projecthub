@@ -48,7 +48,7 @@ Les engagements opérationnels d'organisations tierces **ne font pas partie de c
 | `PH-DEC-013` | Deux éditions documentaires, privée et publique | `CONFIRMED-PROCESS` | Autorisation implicite de publier une source tierce |
 | `PH-DEC-014` | Utiliser le dépôt public ProjectHub | `EXECUTED-VERIFIED` | Licence ou produit installable |
 | `PH-DEC-015` | Initialiser le dépôt avec la documentation publique | `EXECUTED-VERIFIED` | MVP en production |
-| `PH-DEC-016` | Préparer d'abord un contexte détaillé non public | `CONFIRMED-PROCESS` | Droit de redistribuer les sources internes |
+| `PH-DEC-016` | Préparer d'abord un contexte détaillé non public | `EXECUTED-VERIFIED` (pour le document privé) | Droit de redistribuer les sources internes |
 | `PH-DEC-017` | Consolider les arbitrages avant de préciser l'architecture | `CONFIRMED-PROCESS` | Arbitrages effectivement rendus |
 | `PH-DEC-018` | Utiliser Markdown comme mémoire structurée pour humains et agents | `CONFIRMED-INTENT` | Automatisation ou intégration IA implémentée |
 
