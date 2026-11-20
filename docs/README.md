@@ -12,7 +12,7 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 |---|---|---|
 | [00-context](00-context/) | Historique, sources, contexte, décisions, questions ouvertes | Cinq documents préparés pour revue |
 | [01-product](01-product/) | Vision, stratégie, périmètre | Trois documents préparés pour revue |
-| [02-discovery](02-discovery/) | Acteurs, besoins et processus | Lot PUBLIC-02 à préparer |
+| [02-discovery](02-discovery/) | Acteurs, besoins et processus | Cinq éditions expurgées préparées pour revue (PUBLIC-02) |
 | [03-requirements](03-requirements/) | Exigences et règles | Lot PUBLIC-03 à préparer |
 | [04-domain](04-domain/) | Vocabulaire et frontières métier | Lot PUBLIC-03 à préparer |
 | [05-mvp](05-mvp/) | Parcours et backlog | Lot PUBLIC-04 à préparer |
@@ -34,6 +34,18 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [Périmètre produit](01-product/02-product-scope.md) | 25 capacités candidates et exclusions du MVP |
 
 **Revue humaine requise avant fusion** du lot PUBLIC-01. L'existence de ces fichiers dans une branche de PR ne vaut pas leur approbation.
+
+## PUBLIC-02 - Product Discovery
+
+| Document | Description |
+|---|---|
+| [Parties prenantes et personas](02-discovery/00-stakeholders-and-personas.md) | 13 personas candidats, acteurs et protocole d'étude |
+| [Étude générique de coordination associative](02-discovery/01-diversite-alternative-needs.md) | Besoins et parcours associatifs abstraits, sans données d'organisation |
+| [Étude générique de portefeuille technique](02-discovery/02-webtech-solutions-needs.md) | Pilotage multi-projets, maintenance et limites des outils spécialisés |
+| [Besoins inter-organisations](02-discovery/03-cross-organization-needs.md) | 29 familles transversales, divergences et socle candidat |
+| [Processus As-Is / To-Be](02-discovery/04-current-vs-target-workflows.md) | 32 parcours de référence généralisés et preuves attendues |
+
+**Attention :** les deux documents dont le nom de fichier reflète l'index historique sont **des éditions publiques génériques**, pas des expressions de besoins officielles de ces organisations. Les sources et états internes restent privés, conformément à la [politique de publication](PUBLICATION-POLICY.md).
 
 ## Chaîne de traçabilité envisagée
 
