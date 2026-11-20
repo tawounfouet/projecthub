@@ -121,36 +121,55 @@ Ces relations sont conceptuelles : FK, table d'association, référence stable o
 
 ## 5. Les 20 commandes métier candidates
 
-| IDs | Commandes | Garantie déterminante |
-|---|---|---|
-| `PH-DM-CMD-001..002` | `CreateOrganization`, `CreateWorkspace` | Autorité et parentage |
-| `PH-DM-CMD-003..005` | `InviteMember`, `ActivateMembership`, `RevokeMembership` | Invitations distinctes des droits |
-| `PH-DM-CMD-006..007` | `CreateProject`, `ChangeProjectLead` | Scope et changement historisé |
-| `PH-DM-CMD-008..010` | `CreateWorkItem`, `AssignWorkItem`, `ChangeWorkItemStatus` | Affectation et transitions autorisées |
-| `PH-DM-CMD-011` | `AttachDocumentReference` | Lien externe sans grant |
-| `PH-DM-CMD-012..014` | `ProposeDecision`, `ApproveDecision`, `RecordRisk` | Mandat et décision distincte du risque |
-| `PH-DM-CMD-015..016` | `PrepareHandover`, `ValidateHandover` | Préparation puis preuve de reprise |
-| `PH-DM-CMD-017` | `LinkExternalResource` | Provenance sans synchronisation |
-| `PH-DM-CMD-018` | `RequestScopedExport` | Export contrôlé et tracé |
-| `PH-DM-CMD-019` | `SaveView` | Filtre sous autorisation |
-| `PH-DM-CMD-020` | `RegisterMilestone` | Jalon sans pilotage d'infrastructure |
+| ID | Commande | Racine | Précondition publique |
+|---|---|---|---|
+| `PH-DM-CMD-001` | `CreateOrganization` | Organization | Autorité de création / provisioning |
+| `PH-DM-CMD-002` | `CreateWorkspace` | Workspace | Droit de créer dans Organization |
+| `PH-DM-CMD-003` | `InviteMember` | Membership | Invitation autorisée sans accès immédiat |
+| `PH-DM-CMD-004` | `ActivateMembership` | Membership | Acceptation et grant cohérents |
+| `PH-DM-CMD-005` | `RevokeMembership` | Membership | Droit de révocation et protection owner |
+| `PH-DM-CMD-006` | `CreateProject` | Project | Workspace autorisé |
+| `PH-DM-CMD-007` | `ChangeProjectLead` | Project | Acteur habilité et responsable éligible |
+| `PH-DM-CMD-008` | `CreateWorkItem` | WorkItem | Project parent autorisé |
+| `PH-DM-CMD-009` | `AssignWorkItem` | WorkItem | Droit d'assigner et assignee éligible |
+| `PH-DM-CMD-010` | `ChangeWorkItemStatus` | WorkItem | Transition autorisée, pas approbation métier |
+| `PH-DM-CMD-011` | `AttachDocumentReference` | DocumentReference | Source et portée vérifiées |
+| `PH-DM-CMD-012` | `ProposeDecision` | Decision | Sujet et acteur légitimes |
+| `PH-DM-CMD-013` | `ApproveDecision` | Decision | Mandat de décision prouvé |
+| `PH-DM-CMD-014` | `RecordRisk` | Risk | Portée et acteur habilités |
+| `PH-DM-CMD-015` | `PrepareHandover` | Handover | Projet, relais et contexte identifiés |
+| `PH-DM-CMD-016` | `ValidateHandover` | Handover | Exercice de reprise et validation autorisée |
+| `PH-DM-CMD-017` | `LinkExternalResource` | ExternalResource | Lien et tenant valides, sans sync implicite |
+| `PH-DM-CMD-018` | `RequestScopedExport` | Export | Scope, classification et droit vérifiés |
+| `PH-DM-CMD-019` | `SaveView` | SavedView | Filtre et éventuel partage autorisés |
+| `PH-DM-CMD-020` | `RegisterMilestone` | Milestone | Projet et échéance cohérents |
 
 Une commande doit vérifier le demandeur, la cible, l'Organization, le grant, le mandat éventuel et les préconditions avant mutation.
 
 ## 6. Les 20 événements candidats
 
-| IDs | Événements | Sens |
-|---|---|---|
-| `PH-DM-EVT-001..002` | `organization.created`, `workspace.created` | Parentage vérifié |
-| `PH-DM-EVT-003..005` | `membership.invited`, `membership.activated`, `membership.revoked` | Cycle des accès |
-| `PH-DM-EVT-006..008` | `project.created`, `project.lead_changed`, `project.status_changed` | Historique projet |
-| `PH-DM-EVT-009..011` | `workitem.created`, `workitem.assignee_changed`, `workitem.status_changed` | Historique d'exécution |
-| `PH-DM-EVT-012` | `document_reference.linked` | Lien sans permission externe |
-| `PH-DM-EVT-013..015` | `decision.proposed`, `decision.approved`, `risk.recorded` | Gouvernance avec autorité |
-| `PH-DM-EVT-016..017` | `handover.prepared`, `handover.validated` | Transmission et reprise distinctes |
-| `PH-DM-EVT-018` | `external_resource.linked` | Système externe référencé |
-| `PH-DM-EVT-019` | `export.completed` | Export borné et audité |
-| `PH-DM-EVT-020` | `saved_view.created` | Vue sans privilège nouveau |
+| ID | Événement | Domaine source | Invariant |
+|---|---|---|---|
+| `PH-DM-EVT-001` | `organization.created` | organizations | Bootstrap borné |
+| `PH-DM-EVT-002` | `workspace.created` | organizations | Scope vérifié |
+| `PH-DM-EVT-003` | `membership.invited` | identity | Invitation distincte des droits |
+| `PH-DM-EVT-004` | `membership.activated` | identity | Grants mis à jour |
+| `PH-DM-EVT-005` | `membership.revoked` | identity | Caches et sessions réévalués |
+| `PH-DM-EVT-006` | `project.created` | projects | Tenant borné |
+| `PH-DM-EVT-007` | `project.lead_changed` | projects | Historique des responsables |
+| `PH-DM-EVT-008` | `project.status_changed` | projects | Date et scope fiables |
+| `PH-DM-EVT-009` | `workitem.created` | workitems | Parent valide |
+| `PH-DM-EVT-010` | `workitem.assignee_changed` | workitems | Affectation autorisée |
+| `PH-DM-EVT-011` | `workitem.status_changed` | workitems | Pas de validation automatique |
+| `PH-DM-EVT-012` | `document_reference.linked` | collaboration | Aucun grant externe |
+| `PH-DM-EVT-013` | `decision.proposed` | governance | Décision non approuvée |
+| `PH-DM-EVT-014` | `decision.approved` | governance | Mandat prouvé |
+| `PH-DM-EVT-015` | `risk.recorded` | governance | Risque distinct de l'incident |
+| `PH-DM-EVT-016` | `handover.prepared` | collaboration | Préparation distincte de reprise |
+| `PH-DM-EVT-017` | `handover.validated` | collaboration | Reprise vérifiée |
+| `PH-DM-EVT-018` | `external_resource.linked` | integrations | Lien, pas synchronisation |
+| `PH-DM-EVT-019` | `export.completed` | core | Tenant et export auditables |
+| `PH-DM-EVT-020` | `saved_view.created` | views | Filtres protégés |
 
 Un événement ne doit jamais servir à contourner une autorisation ni déclencher une cascade métier implicite. Le choix d'un broker d'événements n'est pas arrêté.
 
