@@ -1,5 +1,5 @@
 ---
-id: PH-VAL-PILOT-001
+id: PH-PILOT-VAL-001
 title: "ProjectHub - Plan candidat de validation et de pilotes (édition publique)"
 version: "0.1.0"
 status: draft
