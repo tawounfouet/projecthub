@@ -1,86 +1,90 @@
 ---
 id: PH-CTX-SRC-001
-title: "ProjectHub - Public Source Register"
-version: "0.1.0"
+title: "ProjectHub - Registre public des sources"
+version: "0.2.0"
 status: draft
 classification: public
 created_at: "2026-11-18"
-updated_at: "2026-11-18"
+updated_at: "2026-11-20"
 baseline: "ProjectHub Discovery Baseline V1.0"
 related_documents:
   - "docs/00-context/00-project-history.md"
+  - "docs/00-context/02-canonical-context.md"
+  - "docs/PUBLICATION-POLICY.md"
 ---
 
-# ProjectHub - Public Source Register
+# ProjectHub - Registre public des sources
 
-> **Public sanitized edition.** The more detailed working register and original organizational records remain private. This document deliberately excludes internal filenames, personal machine paths, security findings, operational identifiers and confidential discussions.
+> **Édition publique expurgée.** Ce registre décrit des classes de sources et leur niveau de preuve. Il ne publie ni comptes rendus internes, ni chemins locaux, ni données personnelles, ni constats de sécurité spécifiques. Une source privée mentionnée ici n'est ni accessible au public ni autorisée à être reproduite.
 
-## Purpose
+## 1. Règles de preuve
 
-This register makes it possible to trace publicly stated product context to its source **category** without disclosing the source material itself.
-
-A source being listed does not imply permission to publish it, endorsement by any third party, or proof that a historical operational condition remains current.
-
-## Source statuses
-
-| Status | Meaning |
+| Marqueur | Interprétation |
 |---|---|
-| `excerpt` | Only an excerpt or high-level historical context is available |
-| `reviewed-private` | Source studied in a private workspace; contents are not public |
-| `current-discussion` | Statement or intention expressed in the working conversation |
-| `derived` | Assistant-created synthesis; not an independent primary source |
-| `pending` | Source not yet received or reviewed |
+| `DIRECT` | Fait constatable directement, par exemple un commit GitHub ou une déclaration explicite |
+| `EXCERPT` | Extrait ou résumé d'un échange ancien, sans transcription intégrale |
+| `PRIVATE-REVIEWED` | Document métier examiné dans un espace privé, non redistribuable |
+| `DERIVED` | Synthèse secondaire, utile à la compréhension mais pas preuve indépendante |
+| `PROPOSAL` | Analyse ou recommandation, non adoptée |
+| `PENDING` | Pièce ou validation manquante |
 
-## Registered sources
+**Important :** un fichier rédigé ne prouve pas qu'une exigence est validée, qu'une fonctionnalité existe ou qu'une action historique reste ouverte à la date du jour.
 
-| Source ID | Date / period | Category | Access | Use for ProjectHub |
+## 2. Sources publiques ou publiquement référencées
+
+| ID | Date / période | Catégorie | Accès | Apport et limite |
 |---|---|---|---|---|
-| `PH-CNV-001` | 2026-06-30 | Initial ProjectHub design conversation | `excerpt` | GitHub Projects, planning primitives, reproducible CLI, initial stack |
-| `PH-CNV-002` | 2026-09-11 | Project introduction conversation | `excerpt` | Product presentation context |
-| `PH-CNV-003` | 2026-09-11 | Eight-part product presentation request | `excerpt` | Vision-to-value narrative |
-| `PH-CNV-004` | 2026-11-18 | Current ProjectHub design discussion | `current-discussion` | Workspaces, target domains, strategy, Discovery program |
-| `PH-OPS-001` | 2026-08 | Nonprofit IT coordination record | `reviewed-private` | Work tracking, ownership, knowledge transfer |
-| `PH-OPS-002` | 2026-07 | Technical portfolio and work-management documents | `reviewed-private` | Project inventory, prioritization, operational quality |
-| `PH-OPS-003` | 2026-11 | Technical workspace structure shared for analysis | `reviewed-private` | Distinctions between projects, packages, integrations and infrastructure |
-| `PH-DER-001` | 2026-11-18 | Internal strategic synthesis | `derived` | Recap of product hypotheses |
-| `PH-DER-002` | 2026-11-18 | Internal historical audit | `derived` | Provenance checking and unresolved questions |
-| `PH-DER-003` | 2026-11-18 | Internal canonical context | `derived` | Cross-session continuity |
+| `PH-CNV-001` | 2026-06-30 | Idéation ProjectHub, GitHub Projects et CLI | `EXCERPT` | Intentions initiales ; transcript complet à récupérer |
+| `PH-CNV-002` | 2026-09-11 | Présentation générale du projet | `EXCERPT` | Narration produit initiale |
+| `PH-CNV-003` | 2026-09-11 | Présentation du produit en huit axes | `EXCERPT` | Vision, problème, solution, architecture, utilisateurs, fonctions, roadmap, valeur |
+| `PH-CNV-004` | Novembre 2026 | Échanges de conception ProjectHub | `DIRECT` pour les intentions exprimées | Stratégie, organisation, Discovery et publication ; conversation non ouverte au public |
+| `PH-GH-001` | Novembre 2026 | [Dépôt GitHub ProjectHub](https://github.com/tawounfouet/projecthub) | `DIRECT` | Faits de dépôt, branche et commits ; ne prouve aucune fonctionnalité livrée |
+| `PH-OPS-001` | 2026 | Source privée de coordination associative | `PRIVATE-REVIEWED` | Suivi, responsabilités, transmission ; aucune donnée source publiée |
+| `PH-OPS-002` | 2026 | Sources privées de portefeuille technique | `PRIVATE-REVIEWED` | Coordination multi-projets, maintenance, documentation |
+| `PH-OPS-003` | 2026 | Inventaire privé d'un écosystème technique | `PRIVATE-REVIEWED` | Distinction entre projets, dépôts, composants et infrastructure |
+| `PH-DER-001` | 2026-11 | Synthèse stratégique interne | `DERIVED` | Orientation produit, non preuve primaire |
+| `PH-DER-002` | 2026-11 | Audit historique interne | `DERIVED` | Contrôle des sources et lacunes |
+| `PH-DER-003` | 2026-11 | Contexte canonique interne | `DERIVED` | Consolidation privée, non publiable telle quelle |
 
-The full private register uses finer-grained source IDs and page references. Those identifiers can be mapped to public requirements only after privacy and publication review.
+Les identifiants `PH-OPS-*` sont des **références publiques génériques**. Ils ne permettent pas de reconstruire les pièces d'origine ni d'en déduire les autorisations de diffusion.
 
-## Publicly established product context
+## 3. Provenance des principales affirmations
 
-| Statement | Source | Evidence status |
+| Affirmation publique | Références | Statut |
 |---|---|---|
-| ProjectHub is intended as a generic project and work management platform | `PH-CNV-001`, `PH-CNV-004` | Explicit product intent |
-| Workspaces remain a first-class domain concept | `PH-CNV-004` | Explicit product direction |
-| The target architecture lists 13 functional domains | `PH-CNV-001`, `PH-CNV-004` | Target scope, not delivered scope |
-| Self-hosted and SaaS editions are considered | `PH-CNV-004` | Strategy under evaluation |
-| Coordination and continuity are relevant user problems | `PH-OPS-001`, `PH-OPS-002` | Candidate needs; formal validation pending |
+| Vision d'une plateforme interopérable de suivi de projets et de travail | `PH-CNV-001`, `PH-CNV-004` | Intention |
+| Orientation Django/DRF + React/Next.js | `PH-CNV-001`, `PH-CNV-004` | Cible technique, non ADR |
+| Cartographie de 13 domaines fonctionnels | `PH-CNV-001`, `PH-CNV-004` | Cible, non implémentation |
+| Distinction Organization / Workspace / Team / Project | `PH-CNV-004` | Contrainte conceptuelle de conception |
+| Ambition Community + Cloud | `PH-CNV-004` | Intention commerciale, sans licence ou prix approuvés |
+| Pilotage, traçabilité, continuité comme problèmes candidats | `PH-OPS-001`, `PH-OPS-002` | Observations privées généralisées, validation utilisateur en attente |
+| Existence du dépôt public et du socle documentaire | `PH-GH-001` | Vérifiable par commits |
+| Deux éditions documentaires avec revue avant fusion | `PH-CNV-004`, `PH-GH-001` | Processus formalisé, voir la politique |
 
-## Known gaps
+## 4. Lacunes connues
 
-| Gap ID | Missing evidence | Required action |
+| ID | Manque | Traitement prévu |
 |---|---|---|
-| `PH-GAP-001` | Complete early design conversation exports | Recover and reconcile privately |
-| `PH-GAP-002` | Confirmed requirements from pilot users | Conduct interviews and record approvals |
-| `PH-GAP-003` | Up-to-date operational status of historical work items | Verify with authorized source owners |
-| `PH-GAP-004` | Final MVP, licensing and SaaS choices | Record formal decisions |
-| `PH-GAP-005` | Authorization to quote third-party source material | Obtain before publishing any excerpts |
+| `PH-GAP-001` | Transcriptions complètes des échanges initiaux | Intégrer au registre privé après récupération |
+| `PH-GAP-002` | Entretiens métier et accord sur les besoins | Conduire les validations avec participants habilités |
+| `PH-GAP-003` | Actualisation des constats historiques | Vérifier dans les espaces autorisés, sans publier le détail |
+| `PH-GAP-004` | Choix final MVP, licence, gouvernance SaaS | Formaliser les décisions avec preuve et responsable |
+| `PH-GAP-005` | Autorisations de diffusion de sources tierces | Demander avant toute citation ou cas nominatif |
+| `PH-GAP-006` | Test fonctionnel, sécurité et exploitation de ProjectHub | Développer puis tester ; aucun résultat ne peut être anticipé |
 
-## Rules for future updates
+## 5. Politique d'ajout d'une source
 
-1. Give each new source a stable ID.
-2. State collection date, source type, access status, owner and classification in the **private** register.
-3. Distinguish user observations from assistant proposals and validated product requirements.
-4. Refer to private sources in public documents by **sanitized ID only**.
-5. Never commit credentials, private meeting transcripts, client datasets, vulnerability details or personal contact information.
-6. Review sensitive material before referencing it in a public issue or pull request.
+1. Enregistrer dans le **registre privé** sa provenance complète, sa date, sa classification, son autorité et ses éventuelles restrictions.
+2. Définir si une description générique suffit dans le registre public.
+3. Conserver un identifiant stable sans divulguer le contenu, les personnes, les chemins ou les caractéristiques techniques sensibles.
+4. Relier toute affirmation produit à un niveau de preuve (`DIRECT`, `EXCERPT`, `DERIVED` ou `PROPOSAL`).
+5. Soumettre toute source nouvelle au processus [PUBLICATION-POLICY.md](../PUBLICATION-POLICY.md).
+6. Mettre à jour les lacunes et la date de revue ; ne jamais transformer silencieusement une proposition en décision.
 
-## Next planned documents
+## 6. Lecture du registre
 
-- `02-canonical-context.md`
-- `03-decisions-register.md`
-- `04-open-questions.md`
+La source privée complète n'est pas nécessaire pour comprendre la documentation publique. Les besoins et exemples diffusés doivent être **génériques, synthétiques ou autorisés**.
 
-These will be public drafts until reviewed and explicitly approved.
+- [Historique](00-project-history.md)
+- [Contexte canonique](02-canonical-context.md)
+- [Vision produit](../01-product/00-product-vision.md)
