@@ -8,6 +8,8 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 **Collaboration et contributions :** lire le [guide GitHub / GitLab / Azure DevOps](COLLABORATION-BEST-PRACTICES.md) pour les Issues, PR/MR, reviews, approbations, contrôles et travail avec des agents IA.
 
+**Bilan post-publication :** consulter le [retour d'expérience sur Discovery Baseline V1.0](reports/2026-11-21-discovery-baseline-publication-bilan.md) pour le résultat, les preuves GitHub, les limites et les prochaines étapes.
+
 ## Discovery Baseline V1.0
 
 | Section | Objet | État public |
@@ -17,8 +19,8 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [02-discovery](02-discovery/) | Acteurs, besoins et processus | Cinq éditions publiques sur main, statut draft |
 | [03-requirements](03-requirements/) | Exigences et règles | Quatre éditions publiques sur main, statut draft |
 | [04-domain](04-domain/) | Vocabulaire et frontières métier | Trois éditions publiques sur main, statut draft |
-| [05-mvp](05-mvp/) | Parcours et backlog | Trois éditions en revue dans PUBLIC-04 |
-| [06-validation](06-validation/) | Protocoles et revue de baseline | Deux éditions en revue dans PUBLIC-04 |
+| [05-mvp](05-mvp/) | Parcours et backlog | Trois éditions publiques sur main, statut draft |
+| [06-validation](06-validation/) | Protocoles et revue de baseline | Deux éditions publiques sur main, statut draft |
 
 **25 documents privés ont été rédigés en interne**, mais pas encore formellement approuvés et non publiables tels quels. Le présent dépôt contient **des éditions publiques réécrites**, dont la progression est indépendante du corpus privé.
 
@@ -73,7 +75,7 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [Plan de validation](06-validation/00-pilot-validation-plan.md) | Huit expériences MVP et huit gates avant E1 |
 | [Revue de baseline](06-validation/01-discovery-baseline-review.md) | 25 documents privés rédigés, 20 réserves et verdict de revue |
 
-**Important :** les cinq éditions publiques de PUBLIC-04 sont des propositions expurgées, soumises en PR pour revue. Les 25 documents de Discovery sont **rédigés**, mais **ni le périmètre MVP ni la baseline ne sont officiellement approuvés**. Aucune expérience ou gate E1 n'est présentée comme réussie.
+**PUBLIC-04 est fusionné sur main.** Les cinq éditions publiques de ce lot restent des propositions expurgées. Les 25 documents de Discovery sont **publiés**, mais **ni le périmètre MVP ni la baseline ne sont officiellement approuvés**. Aucune expérience E0 ou gate E1 n'est présentée comme réussie.
 
 ## Chaîne de traçabilité envisagée
 
