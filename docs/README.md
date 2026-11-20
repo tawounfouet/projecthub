@@ -15,10 +15,10 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [00-context](00-context/) | Historique, sources, contexte, décisions, questions ouvertes | Cinq documents publics sur main, statut draft |
 | [01-product](01-product/) | Vision, stratégie, périmètre | Trois documents publics sur main, statut draft |
 | [02-discovery](02-discovery/) | Acteurs, besoins et processus | Cinq éditions publiques sur main, statut draft |
-| [03-requirements](03-requirements/) | Exigences et règles | Quatre éditions préparées pour revue dans PUBLIC-03 |
-| [04-domain](04-domain/) | Vocabulaire et frontières métier | Trois éditions préparées pour revue dans PUBLIC-03 |
-| [05-mvp](05-mvp/) | Parcours et backlog | Lot PUBLIC-04 à préparer |
-| [06-validation](06-validation/) | Protocoles et revue de baseline | Lot PUBLIC-04 à préparer |
+| [03-requirements](03-requirements/) | Exigences et règles | Quatre éditions publiques sur main, statut draft |
+| [04-domain](04-domain/) | Vocabulaire et frontières métier | Trois éditions publiques sur main, statut draft |
+| [05-mvp](05-mvp/) | Parcours et backlog | Trois éditions en revue dans PUBLIC-04 |
+| [06-validation](06-validation/) | Protocoles et revue de baseline | Deux éditions en revue dans PUBLIC-04 |
 
 **25 documents privés ont été rédigés en interne**, mais pas encore formellement approuvés et non publiables tels quels. Le présent dépôt contient **des éditions publiques réécrites**, dont la progression est indépendante du corpus privé.
 
@@ -61,7 +61,19 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [Modèle de domaine](04-domain/01-domain-model.md) | 20 agrégats, 30 relations, 20 commandes et 20 événements candidats |
 | [Frontières et contrats](04-domain/02-domain-boundaries.md) | Treize domaines, propriété canonique et 32 contrats candidats |
 
-**Les sept éditions sont expurgées et condensées**, distinctes des spécifications privées exhaustives. Leur présence dans la PR PUBLIC-03 ne vaut ni approbation métier ni preuve de réalisation.
+**PUBLIC-03 est fusionné sur main.** Les sept éditions sont expurgées, condensées et restent en statut `draft` : leur publication ne valide ni les spécifications ni leur implémentation.
+
+## PUBLIC-04 - MVP & Validation
+
+| Document | Contenu |
+|---|---|
+| [Définition du MVP](05-mvp/00-mvp-definition.md) | Treize capacités candidates, sept slices, conditions E0/E1 |
+| [Parcours utilisateurs](05-mvp/01-user-journeys.md) | Dix parcours `MVP-UJ-01..10` et critères de démonstration |
+| [Backlog priorisé](05-mvp/02-prioritized-backlog.md) | Sept Epics, 45 items `PH-BLG-001..045` non créés en Issues |
+| [Plan de validation](06-validation/00-pilot-validation-plan.md) | Huit expériences MVP et huit gates avant E1 |
+| [Revue de baseline](06-validation/01-discovery-baseline-review.md) | 25 documents privés rédigés, 20 réserves et verdict de revue |
+
+**Important :** les cinq éditions publiques de PUBLIC-04 sont des propositions expurgées, soumises en PR pour revue. Les 25 documents de Discovery sont **rédigés**, mais **ni le périmètre MVP ni la baseline ne sont officiellement approuvés**. Aucune expérience ou gate E1 n'est présentée comme réussie.
 
 ## Chaîne de traçabilité envisagée
 
