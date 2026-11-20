@@ -2,6 +2,8 @@
 
 This directory hosts the **public, non-confidential** documentation for ProjectHub.
 
+**Publishing documents?** Read [Documentation publication policy](PUBLICATION-POLICY.md) before opening a pull request. Private discovery material must never be copied directly into this repository.
+
 ## Discovery Baseline V1.0
 
 | Section | Purpose | Status |
