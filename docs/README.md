@@ -6,6 +6,8 @@ Bienvenue dans la documentation de conception de **ProjectHub**, une plateforme 
 
 La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le circuit de revue. Les sources privées et les comptes rendus internes ne sont **pas** publiés dans ce dépôt.
 
+**Collaboration et contributions :** lire le [guide GitHub / GitLab / Azure DevOps](COLLABORATION-BEST-PRACTICES.md) pour les Issues, PR/MR, reviews, approbations, contrôles et travail avec des agents IA.
+
 ## Discovery Baseline V1.0
 
 | Section | Objet | État public |
