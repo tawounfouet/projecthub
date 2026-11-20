@@ -115,17 +115,33 @@ Les références documentaires restent dans leur système maître, sans transfer
 
 ## 7. Format d'une fiche de vérification
 
+Une NFR ne peut être marquée `PASS` que si son scénario, sa mesure et son critère ont été fixés avant l'exécution, et si le résultat observé respecte ce critère. Lorsque la décision dépend d'un seuil, le responsable habilité doit en approuver la valeur et la justification avant le test. Un seuil absent ou une preuve incomplète signifie `NOT_ASSESSED`, pas une réussite implicite.
+
+| NFR / question liée | Mesure à préciser avant le test | Condition de décision |
+|---|---|---|
+| `PH-NFR-001..009` / `PH-OPEN-002`, `PH-OPEN-006` — isolation et autorisations | Matrice des acteurs, actions, ressources et chemins testés : liste, détail, recherche, modification, job et export selon le cas | Toute divulgation ou action non autorisée est un `FAIL`. Un succès couvre uniquement les combinaisons effectivement testées |
+| `PH-NFR-051..052` / `PH-OPEN-021` — restauration | Point de restauration, périmètre, temps de restauration observé et objectifs RPO/RTO approuvés avant l'exercice | Comparer les résultats aux objectifs fixés ; sans objectifs ou exercice réel, `NOT_ASSESSED` |
+| `PH-NFR-059..062` / `PH-OPEN-021` — performance et capacité | Parcours, volume de données, charge, environnement, distribution des temps de réponse et erreurs | Fixer le budget et la méthode avant la mesure ; aucune valeur par défaut ni promesse de performance n'est supposée |
+| `PH-NFR-068..076` / `PH-OPEN-027` — accessibilité et utilisabilité | Référentiel, version, niveau visé, parcours évalués et méthodes manuelles/automatisées appropriées | Évaluer les parcours définis et retester les barrières corrigées ; ne pas généraliser à une conformité non auditée |
+| `PH-NFR-097..099` / `PH-OPEN-026` — export et sortie | Entités/champs attendus, périmètre autorisé, méthode de lecture indépendante et vérification des enregistrements | L'export doit être exploitable et complet pour le périmètre convenu ; toute donnée hors périmètre est un `FAIL` |
+
+États de suivi recommandés : `NOT_ASSESSED` (aucun jugement étayé), `IN_PROGRESS` (évaluation commencée mais non conclue), `PASS` (critère préétabli atteint dans le scénario borné), `FAIL` (critère non atteint ou invariant violé) et `DEFERRED` (exclusion de phase décidée, avec déclencheur de réexamen). `DEFERRED` n'est jamais équivalent à `PASS`. Les exigences de sécurité obligatoires avant E1 ne peuvent pas être reportées pour rendre le jalon admissible.
+
+La décision d'un seuil, le choix du référentiel d'accessibilité et le périmètre d'exploitation restent à attribuer aux responsables compétents ; aucune valeur chiffrée ou approbation n'est ajoutée par cette édition.
+
 ```text
 NFR ID :
-Criticité et propriétaire :
+Statut :
+Criticité et propriétaire / autorité :
 Objectif de qualité et risque couvert :
 Scénario et population/charge :
 Environnement + version/commit testés :
-Seuil décidé / justification :
+Mesure, unité et seuil / règle de décision approuvés avant le test :
+Autorité, date et justification de l'approbation :
 Procédure de test :
 Résultat observé :
 Preuves et anomalies :
-Décision de validation / autorité :
+Décision de validation et portée :
 ```
 
 Seules les preuves **effectivement produites** doivent renseigner une validation. Une proposition de test est un plan, pas un résultat.
