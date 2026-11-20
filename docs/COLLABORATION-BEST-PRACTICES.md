@@ -16,6 +16,10 @@ related_documents:
 
 > **Édition publique, statut draft.** Ce guide définit un processus de contribution et de revue applicable aux dépôts Git, sans prétendre que toutes les protections sont déjà configurées sur ProjectHub. Les paramètres varient selon les plateformes et les règles de chaque équipe.
 
+![Infographie des bonnes pratiques Git : Issue ou Work Item, branche, Pull Request ou Merge Request, review, checks CI/CD, fusion et vérification, avec correspondances GitHub, GitLab et Azure DevOps](assets/bonnes_pratiques_de_collaboration_git.png)
+
+*Illustration synthétique du cycle de collaboration. Les contrôles et les approbations effectifs dépendent des règles configurées sur chaque dépôt et plateforme.*
+
 ## 1. Ce que signifie bien collaborer
 
 Une bonne collaboration sur un dépôt Git doit permettre de connaître le **pourquoi**, la **portée**, les **responsables**, les **risques**, les **preuves de qualité** et la **décision de fusion** de chaque changement.
