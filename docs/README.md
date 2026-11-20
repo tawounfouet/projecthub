@@ -86,6 +86,17 @@ Source -> Observation -> Besoin -> Exigence -> Critère d'acceptation
 
 Un document `draft` n'est pas une spécification définitivement adoptée. Les identifiants des besoins, décisions et exigences sont maintenus pour permettre les mises à jour sans réécriture de l'historique.
 
+## Prochain jalon recommandé
+
+La suite utile est de tester les hypothèses prioritaires, pas d'étendre les catalogues. À partir des questions `PH-OPEN-007` (utilisateur et promesse), `PH-OPEN-001` (plus petit MVP utile) et `PH-OPEN-024` (preuve de passation) :
+
+1. choisir les parcours et profils à confronter à des utilisateurs, avec les autorisations nécessaires ;
+2. comparer chaque tâche à la méthode actuelle et définir avant le test les mesures et critères de décision ;
+3. exécuter les scénarios E0 sur des données synthétiques, puis consigner aussi les échecs et résultats non concluants ;
+4. mettre à jour le périmètre MVP, le backlog et les décisions selon les preuves obtenues.
+
+Le [protocole de validation](06-validation/00-pilot-validation-plan.md#11-protocole-dobservation-et-de-mesure) précise les informations à fixer et à consigner. Aucun propriétaire de décision, seuil, résultat utilisateur ou accord de pilote n'est présumé par cette séquence. E1 reste No-Go tant que les autorisations et les huit gates ne sont pas prouvées.
+
 ## Conventions documentaires
 
 - Frontmatter YAML avec `id`, `version`, `status`, `classification`, `updated_at`.

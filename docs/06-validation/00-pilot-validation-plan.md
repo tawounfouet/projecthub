@@ -160,7 +160,24 @@ Pour chaque expérience :
 8. consigner une version de logiciel, des anomalies et un verdict ;
 9. comparer aux méthodes existantes avant de décider de poursuivre.
 
-**Indicateurs possibles, à définir :** temps de recherche d'un Project, taux de mise à jour complète, effort de préparation d'une revue, autonomie de reprise, défauts d'accès et lisibilité des exports. Aucun seuil ni résultat chiffré n'est affirmé.
+### 11.1 Critères à fixer avant une session
+
+Avant de recueillir des résultats, consigner pour chaque expérience :
+- l'hypothèse, la tâche, le profil participant (sans identité personnelle) et le jeu de données autorisé ;
+- la méthode actuelle servant de comparaison, ou la raison pour laquelle aucune comparaison n'est possible ;
+- la mesure, son unité et ses bornes (début/fin) ; pour un taux, le numérateur et le dénominateur ;
+- le critère de décision, sa justification et la personne habilitée à l'approuver ;
+- les conditions d'arrêt et les anomalies qui imposent un `No-Go`.
+
+Les critères quantitatifs ne sont pas présumés : ils doivent être convenus en fonction de l'usage attendu avant le test, jamais ajustés après observation pour transformer un résultat en succès. Pour une expérience qualitative, définir un comportement observable et une règle d'interprétation plutôt qu'un chiffre artificiel. Si le critère ou la comparaison manque, inscrire `NOT_ASSESSED` ou `INCONCLUSIVE` selon le cas ; ne pas conclure à une validation.
+
+Pour les contrôles d'accès, toute divulgation non autorisée constitue un échec et déclenche l'arrêt prévu. L'absence de fuite dans les scénarios exécutés ne prouve que ces scénarios, pas l'absence générale de vulnérabilité ni l'aptitude à E1.
+
+Utiliser `NOT_RUN` avant toute session, `PASS` ou `FAIL` selon le critère fixé à l'avance, `INCONCLUSIVE` si les observations ne permettent pas de trancher et `NOT_ASSESSED` si le protocole ou les preuves sont insuffisants. Ces statuts décrivent une expérience, pas l'approbation globale du MVP ou d'un pilote.
+
+### 11.2 Lecture des résultats
+
+Les mesures candidates incluent le temps de recherche d'un Project, la complétude d'une mise à jour, l'effort de préparation d'une revue, l'autonomie de reprise et la lisibilité d'un export. Pour éviter les interprétations ambiguës, préciser avant la session comment chaque mesure sera relevée ; par exemple, pour une passation, indiquer l'action attendue et si l'aide du facilitateur est permise. Les résultats restent bornés au scénario, aux participants, aux données et à la version testés. Un résultat positif isolé ne vaut ni validation générale du besoin, ni approbation du MVP.
 
 ## 12. Organisation des phases et horizon indicatif
 
@@ -177,21 +194,29 @@ Le plan source évoque un **programme pilote conditionnel d'environ 90 jours** c
 
 ```yaml
 id: MVP:EXP-05
+status: NOT_RUN
+hypothesis: null
 environment: null
 commit_sha: null
 data_classification: synthetic
-actor: null
+participant_profile: null
 tenant_scope: null
 scenario: "refus de lecture cross-tenant"
+baseline: null
+measure_and_unit: null
+decision_criterion: null
+criterion_rationale: null
+criterion_approved_by: null
 expected: "accès interdit"
 observed: null
+anomalies: []
 executed_at: null
 evidence_url: null
 reviewer: null
-status: NOT_RUN
+decision: null
 ```
 
-Les `null` sont intentionnels : ne pas ajouter de preuves fictives pour « compléter » un rapport.
+Les `null` sont intentionnels : ne pas ajouter de preuves fictives pour « compléter » un rapport. Les profils et références de preuve ne doivent pas révéler d'identité ni de données personnelles ; conserver les pièces sensibles dans un espace autorisé, hors de la PR publique.
 
 ## 14. Risques, responsabilités et suites
 
