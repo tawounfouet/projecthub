@@ -12,11 +12,11 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 | Section | Objet | État public |
 |---|---|---|
-| [00-context](00-context/) | Historique, sources, contexte, décisions, questions ouvertes | Cinq documents préparés pour revue |
-| [01-product](01-product/) | Vision, stratégie, périmètre | Trois documents préparés pour revue |
-| [02-discovery](02-discovery/) | Acteurs, besoins et processus | Cinq éditions expurgées préparées pour revue (PUBLIC-02) |
-| [03-requirements](03-requirements/) | Exigences et règles | Lot PUBLIC-03 à préparer |
-| [04-domain](04-domain/) | Vocabulaire et frontières métier | Lot PUBLIC-03 à préparer |
+| [00-context](00-context/) | Historique, sources, contexte, décisions, questions ouvertes | Cinq documents publics sur main, statut draft |
+| [01-product](01-product/) | Vision, stratégie, périmètre | Trois documents publics sur main, statut draft |
+| [02-discovery](02-discovery/) | Acteurs, besoins et processus | Cinq éditions publiques sur main, statut draft |
+| [03-requirements](03-requirements/) | Exigences et règles | Quatre éditions préparées pour revue dans PUBLIC-03 |
+| [04-domain](04-domain/) | Vocabulaire et frontières métier | Trois éditions préparées pour revue dans PUBLIC-03 |
 | [05-mvp](05-mvp/) | Parcours et backlog | Lot PUBLIC-04 à préparer |
 | [06-validation](06-validation/) | Protocoles et revue de baseline | Lot PUBLIC-04 à préparer |
 
@@ -35,7 +35,7 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [Stratégie produit](01-product/01-product-strategy.md) | Segments, apprentissage, Community et Cloud |
 | [Périmètre produit](01-product/02-product-scope.md) | 25 capacités candidates et exclusions du MVP |
 
-**Revue humaine requise avant fusion** du lot PUBLIC-01. L'existence de ces fichiers dans une branche de PR ne vaut pas leur approbation.
+**PUBLIC-01 a été fusionné sur main.** Les documents gardent le statut métier `draft` : la fusion n'approuve ni le MVP ni les exigences.
 
 ## PUBLIC-02 - Product Discovery
 
@@ -48,6 +48,20 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 | [Processus As-Is / To-Be](02-discovery/04-current-vs-target-workflows.md) | 32 parcours de référence généralisés et preuves attendues |
 
 **Attention :** les deux documents dont le nom de fichier reflète l'index historique sont **des éditions publiques génériques**, pas des expressions de besoins officielles de ces organisations. Les sources et états internes restent privés, conformément à la [politique de publication](PUBLICATION-POLICY.md).
+
+## PUBLIC-03 - Requirements & Domain
+
+| Document | Contenu |
+|---|---|
+| [Exigences fonctionnelles](03-requirements/00-functional-requirements.md) | 130 FR candidates, 13 domaines, priorités et exemples vérifiables |
+| [Exigences non fonctionnelles](03-requirements/01-non-functional-requirements.md) | 113 NFR candidates, douze familles de qualité et contrôles E0/E1 |
+| [Règles métier et permissions](03-requirements/02-business-rules-and-permissions.md) | 111 règles, modèle RBAC candidat et scénarios de refus |
+| [Matrice de traçabilité](03-requirements/03-requirements-traceability.md) | Liens génériques entre 29 familles de besoins, exigences et preuves |
+| [Langage ubiquitaire](04-domain/00-ubiquitous-language.md) | Index de 145 termes et définitions publiques essentielles |
+| [Modèle de domaine](04-domain/01-domain-model.md) | 20 agrégats, 30 relations, 20 commandes et 20 événements candidats |
+| [Frontières et contrats](04-domain/02-domain-boundaries.md) | Treize domaines, propriété canonique et 32 contrats candidats |
+
+**Les sept éditions sont expurgées et condensées**, distinctes des spécifications privées exhaustives. Leur présence dans la PR PUBLIC-03 ne vaut ni approbation métier ni preuve de réalisation.
 
 ## Chaîne de traçabilité envisagée
 
