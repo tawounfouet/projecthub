@@ -49,6 +49,10 @@ No license has been selected yet. **Public visibility alone does not grant permi
 
 Operational documents from pilot organizations, internal analyses, credentials and infrastructure details are **not hosted in this public repository**. The public source register contains sanitized references only.
 
+## Contributors
+
+- `copilot-swe-agent[bot]` (GitHub Copilot) — AI-assisted documentation and repository contributions.
+
 ## Maintainer
 
 Project initiated in the [tawounfouet](https://github.com/tawounfouet) GitHub account.
