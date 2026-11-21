@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 
 from django.conf import settings
+from django.db import DatabaseError, connection
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.http import Http404, HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import get_object_or_404
@@ -100,7 +101,23 @@ def item_json(item):
 @api_view(["GET"])
 @permission_classes([AllowAny])
 def health(request):
+    """Lightweight liveness: intentionally does not query PostgreSQL."""
     return Response({"status": "ok", "mode": "synthetic-e0"})
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def ready(request):
+    """E0 readiness: synthetic mode must be active and PostgreSQL reachable."""
+    if not settings.E0_SYNTHETIC_ONLY:
+        return Response({"status": "unavailable"}, status=503)
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+            cursor.fetchone()
+    except DatabaseError:
+        return Response({"status": "unavailable"}, status=503)
+    return Response({"status": "ready"})
 
 
 @require_GET

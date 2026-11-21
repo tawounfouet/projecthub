@@ -30,6 +30,15 @@ class Slice00Tests(TestCase):
     def select(self, api, org=ORG_A, workspace=WS_A):
         return api.post("/api/context/", {"organization_id": org, "workspace_id": workspace}, format="json")
 
+    def test_readiness_uses_database_and_supports_rewrite_alias(self):
+        self.assertEqual(self.client.get("/api/health/").status_code, 200)
+        self.assertEqual(self.client.get("/api/ready/").json()["status"], "ready")
+        self.assertEqual(self.client.get("/api/ready").status_code, 200)
+
+    @override_settings(E0_SYNTHETIC_ONLY=False)
+    def test_readiness_refuses_outside_synthetic_mode(self):
+        self.assertEqual(self.client.get("/api/ready/").status_code, 503)
+
     def test_organizations_filter_by_active_membership(self):
         api = self.login_as("demo_alice")
         data = api.get("/api/organizations/").json()["organizations"]

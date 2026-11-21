@@ -48,6 +48,7 @@ def main():
         return obj
 
     request("GET", "/api/health/")
+    request("GET", "/api/ready/")
     request("GET", "/api/auth/csrf/")
     request("POST", "/api/auth/login/", {"username": DEMO_USER, "password": DEMO_PASSWORD})
     member = request("GET", "/api/organizations/")["organizations"]
