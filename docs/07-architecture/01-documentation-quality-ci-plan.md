@@ -7,8 +7,8 @@ classification: public
 created_at: "2026-11-21"
 updated_at: "2026-11-21"
 owner: "ProjectHub Engineering / Documentation - responsable à désigner"
-implementation_status: NOT_IMPLEMENTED
-validation_status: PROPOSED
+implementation_status: IMPLEMENTED_IN_P0_BRANCH
+validation_status: SYNTHETIC_TESTS_PASS_PR_RUN_PENDING
 related_documents:
   - "docs/PUBLICATION-POLICY.md"
   - "docs/COLLABORATION-BEST-PRACTICES.md"
@@ -21,11 +21,11 @@ related_documents:
 
 # ProjectHub - Qualité documentaire automatisée avec GitHub Actions
 
-> **Spécification publique candidate, non approuvée et non implémentée.** Ce document décrit un workflow de contrôle documentaire à construire et à tester. À la date de rédaction, le dépôt `tawounfouet/projecthub` présente des contrôles GitGuardian sur ses PR récentes, mais ne contient pas de workflow documentaire dédié sous `.github/workflows/`. La réussite de GitGuardian ne constitue pas une validation de la documentation, de ses liens ou de ses ID.
+> **Spécification publique candidate avec implémentation proposée dans le lot P0.** Au commit de référence de `main` après la PR #12 (`f20ab25`), aucune CI documentaire n'était présente. Le nouveau workflow, le validateur et les fixtures sont désormais proposés sur une branche dédiée. **Ils ne sont pas déclarés opérationnels sur `main` avant fusion et vérification d'un run réel.** Le succès de GitGuardian ne prouve pas la validité des liens ni des identifiants.
 
 **Finalité :** passer d'une revue documentaire manuelle et ponctuelle à des contrôles reproductibles à chaque PR, tout en maintenant une revue humaine de confidentialité, d'exactitude et de décision métier.
 
-**Emplacement public proposé pour la prochaine PR :** `docs/07-architecture/01-documentation-quality-ci-plan.md`. Cette proposition ne modifie pas le dépôt GitHub en l'absence d'un commit distinct.
+**État de livraison :** ce plan est déjà publié ; l'implémentation P0 propose `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, `tests/test_docs_quality.py`, `docs/quality/requirements.txt` et `docs/quality/README.md`. Le résultat GitHub Actions doit être vérifié sur le SHA de la PR.
 
 **Périmètre :** `README.md`, les documents de `docs/`, les illustrations liées, les index, les métadonnées YAML, les registres d'identifiants, puis les liens externes lors d'une phase ultérieure. Ce lot **n'implémente pas** Django, Next.js, ni le MVP E0.
 
@@ -42,7 +42,7 @@ Principaux risques de régression :
 - Une édition interne exhaustive est accidentellement ajoutée dans le dépôt public.
 - Une réussite de scanner de secrets est interprétée à tort comme une autorisation de publication ou une preuve de validation métier.
 
-**Cas réel à prendre en compte :** la PR #11 contient une baseline exhaustive avec `classification: "INTERNAL - exhaustive working edition"`. Elle nécessite une décision de publication spécifique. Un contrôle strict de classification publique doit la **signaler**, pas la rendre publique par changement automatique d'étiquette. Le contenu d'une branche publique reste déjà accessible avant fusion.
+**Historique à prendre en compte :** la PR #11 contenait une baseline exhaustive initialement classée `INTERNAL`. Cette anomalie de publication B1 a été traitée via la décision [`PH-DEC-019`](../00-context/03-decisions-register.md), intégrée à la PR #12 : la classification est désormais `public`, sans approbation de l'architecture. Le validateur n'accorde qu'une exception de **syntaxe de statut** strictement limitée au chemin et à la valeur historiques de cette baseline. Le contenu d'une branche publique reste accessible avant fusion.
 
 ## 2. Objectifs et critères de succès
 
@@ -223,7 +223,7 @@ projecthub/
 └── README.md
 ```
 
-Les chemins `docs/quality/` et `scripts/docs_quality.py` sont **proposés**, pas présents ou déjà opérationnels.
+Ces chemins, historiquement proposés, sont créés dans le lot P0. Leur présence sur une branche ne vaut pas vérification du workflow sur `main`.
 
 ## 9. Modèle de workflow GitHub Actions
 
@@ -291,7 +291,7 @@ jobs:
 
 **Note :** l'absence de filtre `paths` est un choix de sûreté de la protection de branche, pas une obligation GitHub universelle. La stratégie sera réévaluée avec la politique des checks requis.
 
-## 10. Implémentation proposée du validateur Python
+## 10. Exemple historique du validateur Python
 
 Le fragment ci-dessous constitue une **base exécutable à adapter et à tester**, pas un script installé sur le dépôt. Il suppose `PyYAML` disponible dans les dépendances épinglées. Il valide des **lignes de tableau** propriétaires et évite de compter les références répétées ailleurs.
 
