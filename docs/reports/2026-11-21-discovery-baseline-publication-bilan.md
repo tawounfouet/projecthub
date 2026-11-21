@@ -133,10 +133,10 @@ Le registre [`PH-REV-001..020`](../06-validation/01-discovery-baseline-review.md
 
 ## 8. Prochaines actions recommandées
 
-1. **Corriger l'index documentaire** pour refléter la fusion de PUBLIC-04 et référencer le présent bilan.
+1. **Vérifier que l'index documentaire** reste synchronisé avec les éditions publiées et le présent bilan (déjà référencés dans `docs/README.md`).
 2. **Suivre les 20 réserves** avec responsables, décisions et preuves, sans déclarer une clôture anticipée.
 3. **Trancher les arbitrages d'architecture** : isolation du tenant, RBAC, Client/Organization/Workspace/Team, propriétaire Decision/Risk, passation.
-4. **Préparer Architecture & Engineering Baseline V1.0** : ADR, contrats API, architecture Django/DRF + Next.js, tests et exploitation.
+4. **Vérifier que l'Architecture & Engineering Baseline V1.0** (déjà présente dans `docs/07-architecture/`) est synchronisée avec les arbitrages tranchés : ADR, contrats API, architecture Django/DRF + Next.js, tests et exploitation.
 5. **Automatiser les contrôles documentaires en CI** : Markdown, liens, frontmatter, IDs et surveillance des informations à exclure.
 6. **Définir la démonstration E0 sur données fictives** avec scénarios nominaux et tests négatifs inter-tenant.
 7. **Revoir la valeur avec des utilisateurs** avant de figer le MVP et de transformer les items de backlog en plan de livraison.

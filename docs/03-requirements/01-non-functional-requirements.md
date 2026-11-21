@@ -62,6 +62,7 @@ La présence de ces familles n'oblige pas à développer leurs extensions dès l
 | `PH-NFR-006` | Recherche bornée aux droits | Sentinelle uniquement dans B invisible à A |
 | `PH-NFR-007` | Jobs asynchrones avec contexte contrôlé | Exécution retardée après révocation du droit |
 | `PH-NFR-009` | Permissions par acte et ressource | Lecture permise, approbation refusée selon mandat |
+| `PH-NFR-010` | Index et permissions hérités correctement dans les sous-objets | Sous-objet créé dans un contexte A invisible depuis B |
 | `PH-NFR-013` | Révocation effective | Refus d'une session ou action anciennement autorisée |
 | `PH-NFR-020` | Données pilotes classifiées et autorisées | Refuser toute importation non approuvée |
 | `PH-NFR-022` | Données de démo synthétiques | Jeu E0 sans personne ou projet réel |
@@ -119,7 +120,7 @@ Une NFR ne peut être marquée `PASS` que si son scénario, sa mesure et son cri
 
 | NFR / question liée | Mesure à préciser avant le test | Condition de décision |
 |---|---|---|
-| `PH-NFR-001..009` / `PH-OPEN-002`, `PH-OPEN-006` — isolation et autorisations | Matrice des acteurs, actions, ressources et chemins testés : liste, détail, recherche, modification, job et export selon le cas | Toute divulgation ou action non autorisée est un `FAIL`. Un succès couvre uniquement les combinaisons effectivement testées |
+| `PH-NFR-001..010` / `PH-OPEN-002`, `PH-OPEN-006` — isolation et autorisations | Matrice des acteurs, actions, ressources et chemins testés : liste, détail, recherche, modification, job et export selon le cas | Toute divulgation ou action non autorisée est un `FAIL`. Un succès couvre uniquement les combinaisons effectivement testées |
 | `PH-NFR-051..052` / `PH-OPEN-021` — restauration | Point de restauration, périmètre, temps de restauration observé et objectifs RPO/RTO approuvés avant l'exercice | Comparer les résultats aux objectifs fixés ; sans objectifs ou exercice réel, `NOT_ASSESSED` |
 | `PH-NFR-059..062` / `PH-OPEN-021` — performance et capacité | Parcours, volume de données, charge, environnement, distribution des temps de réponse et erreurs | Fixer le budget et la méthode avant la mesure ; aucune valeur par défaut ni promesse de performance n'est supposée |
 | `PH-NFR-068..076` / `PH-OPEN-027` — accessibilité et utilisabilité | Référentiel, version, niveau visé, parcours évalués et méthodes manuelles/automatisées appropriées | Évaluer les parcours définis et retester les barrières corrigées ; ne pas généraliser à une conformité non auditée |

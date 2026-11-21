@@ -139,7 +139,7 @@ Les besoins de terrain reflètent **des environnements différents** ; la conver
 
 ## 9. Source de vérité et documents liés
 
-Le dépôt GitHub est la **source de vérité des éditions publiques validées** et de l'historique des publications. Il ne contient pas les sources métier privées et ne remplace pas leur espace d'archivage.
+Le dépôt GitHub est la **source de vérité des éditions publiques sous statut `draft`** et de l'historique des publications. La présence d'un document dans `main` ne vaut pas approbation métier. Il ne contient pas les sources métier privées et ne remplace pas leur espace d'archivage.
 
 Lire aussi :
 - [Historique](00-project-history.md) et [registre des sources](01-source-register.md)

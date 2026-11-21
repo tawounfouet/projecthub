@@ -118,6 +118,8 @@ Ne pas supprimer un ID résolu ou le réutiliser. Un exemple fictif doit être m
 
 ## 8. Ordre d'arbitrage recommandé
 
+> L'ordre ci-dessous est la référence unique ; le tableau de la §1 donne le même ordre sous forme détaillée.
+
 1. **Discovery** : `001`, `007`, `016`, `017`, `024`, `030`.
 2. **Conception de l'accès et de l'isolation** : `002`, `003`, `006`, `020`, `021`, `026`.
 3. **Publication et communauté** : `015`, `005`, `014`.

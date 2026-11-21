@@ -77,7 +77,7 @@ Ce tableau ne crée pas de nouveaux `PH-DEC`. Un changement de statut nécessite
 | [`85c1a59`](https://github.com/tawounfouet/projecthub/commit/85c1a59a1483048f02578c87c58801d9bab96181) | Dossiers, modèles d'issues, premiers documents |
 | [`5f45729`](https://github.com/tawounfouet/projecthub/commit/5f45729f19a26e7018556e4f4aa432bb2ecb85c2) | Politique publique de publication et index |
 
-Le lot PUBLIC-01 est préparé **en proposition de pull request**. Une PR ouverte ne constitue pas une fusion ni une approbation du contenu.
+Les lots PUBLIC-01 à PUBLIC-04 sont **fusionnés sur `main`**. Leur fusion ne constitue pas une approbation métier du contenu (voir le [bilan de publication](../reports/2026-11-21-discovery-baseline-publication-bilan.md)).
 
 ## 5. Comment approuver une nouvelle décision
 
