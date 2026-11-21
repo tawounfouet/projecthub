@@ -20,7 +20,19 @@ The long-term direction includes a self-hostable open source distribution and a 
 
 ## Target architecture
 
-The proposed technology foundation is **Django / Django REST Framework**, **Next.js / React / TypeScript** and **PostgreSQL**, initially as a modular monolith.
+The [engineering baseline](docs/07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) proposes a modular monolith. This target stack and its versions remain subject to ADRs and bootstrap validation:
+
+**Application and data:**<br>
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Django + DRF](https://img.shields.io/badge/Django%20%2B%20DRF-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.django-rest-framework.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+
+**Development and CI:**<br>
+[![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/compose/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
 
 The target domain map contains 13 modules:
 
