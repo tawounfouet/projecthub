@@ -144,11 +144,11 @@ jobs:
           npm run build
       - name: HTTP smoke through Next same-origin reverse proxy
         run: |
-          (cd backend && DATABASE_URL="postgresql://ph_app:${E0_APP_DB_PASSWORD}@${PGHOST}:${PGPORT}/${POSTGRES_DB}" python manage.py runserver 127.0.0.1:8000 > /tmp/ph-backend.log 2>&1) &
+          (cd backend && DATABASE_URL="postgresql://ph_app:${E0_APP_DB_PASSWORD}@${PGHOST}:${PGPORT}/${POSTGRES_DB}" gunicorn config.wsgi:application --bind 127.0.0.1:8000 --workers 2 --worker-class gthread --threads 4 --timeout 30 --access-logfile - --error-logfile - > /tmp/ph-backend.log 2>&1) &
           (cd frontend && npm run start > /tmp/ph-next.log 2>&1) &
           ready=0
           for i in $(seq 1 60); do
-            if [ "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/api/health/)" = "200" ]; then
+            if [ "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/api/ready/)" = "200" ]; then
               ready=1
               break
             fi
@@ -168,7 +168,7 @@ jobs:
   e0-compose:
     name: E0 Docker Compose integration
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -189,26 +189,24 @@ jobs:
               encoding="utf-8",
           )
           PY
-      - name: Build and launch Compose database, migrations, backend and frontend
-        run: docker compose up -d --build --wait --wait-timeout 240
-      - name: Verify real HTTP login, denied access and scoped export
+      - name: Build disposable Compose images once
+        run: docker compose build
+      - name: Verify three clean Compose starts and HTTP authorization flows
         run: |
-          ready=0
-          for i in $(seq 1 60); do
-            if [ "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/api/health/)" = "200" ]; then
-              ready=1
-              break
-            fi
-            sleep 2
+          set -euo pipefail
+          for cycle in 1 2 3; do
+            echo "::group::E0 clean start ${cycle}/3"
+            docker compose down --volumes --remove-orphans
+            docker compose up -d --no-build --wait --wait-timeout 240
+            # The web healthcheck reaches Django's DB-backed readiness route.
+            # One full smoke per cycle. Never retry failed authorization or 500s.
+            python scripts/e0_smoke.py
+            echo "E0_COMPOSE_CLEAN_START_${cycle}_PASSED"
+            echo "::endgroup::"
           done
-          if [ "$ready" -ne 1 ]; then
-            echo "Compose E0 did not return a healthy 200"
-            exit 1
-          fi
-          python scripts/e0_smoke.py
       - name: Display bounded container diagnostics on failure
         if: failure()
-        run: docker compose ps && docker compose logs --tail=35 || true
+        run: docker compose ps && docker compose logs --tail=90 || true
       - name: Remove synthetic environment and volumes
         if: always()
         run: docker compose down --volumes --remove-orphans
