@@ -27,7 +27,7 @@ release_state: IN_REVIEW
 
 ## 2. Preuves d'exécution de la CI
 
-- Workflow : `.github/workflows/docs-quality.yml` ; [PR Draft #14](https://github.com/tawounfouet/projecthub/pull/14).
+- Workflow : `.github/workflows/docs-quality.yml` ; [PR #14](https://github.com/tawounfouet/projecthub/pull/14), créée en Draft puis passée `Ready for review` après la validation du premier run.
 - Premier SHA contrôlé : `4ec0b4ca46f028e626835c51371ad396660e474d`.
 - Premier run GitHub Actions : [#44859773975](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) ; `conclusion: success`.
 - Log du job : `Ran 14 tests in 0.124s`, `OK` et `Documentation Quality: 0 anomalie(s)`.
