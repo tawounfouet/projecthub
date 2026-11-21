@@ -15,7 +15,7 @@
 
 **ProjectHub** is an evolving project and work management platform designed to connect organizational goals, projects, teams and execution tools.
 
-> Status: **Discovery**. This repository currently contains the public documentation foundation for **ProjectHub Discovery Baseline V1.0**. It is not yet a functional application.
+> Status: **Discovery with an experimental E0 prototype proposed in PR #15**. The 25-document Discovery Baseline is published, while the Django/Next.js demo is limited to synthetic data and pending technical review. This is not a production-ready project management application.
 
 ## Product direction
 
@@ -105,6 +105,10 @@ Start with [docs/README.md](docs/README.md). The public Discovery Baseline is or
 - [Project history](docs/00-context/00-project-history.md)
 - [Public source register](docs/00-context/01-source-register.md)
 
+## Experimental E0 foundation (PR #15)
+
+The [E0 runbook](E0.md) describes a **synthetic-only** Docker Compose demonstration with Django/DRF, Next.js, PostgreSQL, two fictitious Organizations and negative authorization tests. [ADR-0019 RLS comparison](docs/07-architecture/03-adr-0019-rls-poc-decision.md) recommends option R-2 for formal review, not as an accepted decision. [PR #15](https://github.com/tawounfouet/projecthub/pull/15) must pass CI and receive human review before merge; [issue #13](https://github.com/tawounfouet/projecthub/issues/13) still requires architecture appointments and [issue #16](https://github.com/tawounfouet/projecthub/issues/16) requires an ADR decision. E1 remains NO-GO.
+
 ## Repository audit - 2026-11-21
 
 - [INDEX.md](docs/reports/audit-2026-11-21/INDEX.md) - navigation and measured facts.
@@ -116,7 +120,7 @@ Start with [docs/README.md](docs/README.md). The public Discovery Baseline is or
 - [SDLC.md](SDLC.md) - current lifecycle, post-PR #12 state and P0 follow-up.
 - [Documentation quality](docs/quality/README.md) - offline validator, tests and GitHub Actions workflow.
 
-There is no application to launch and no environment variables to configure in this repository; the available checks are described in [CODEBASE_ANALYSIS.md](docs/reports/audit-2026-11-21/CODEBASE_ANALYSIS.md).
+Historical audit reports describe the repository before application code existed. The experimental E0 branch now contains a strictly local [Docker Compose bootstrap and runbook](E0.md), plus PostgreSQL/DRF/Next.js CI. Do not use it with real organizations or treat a green check as an approved ADR.
 
 > Audit follow-up: B1..B9 have been addressed. The exhaustive baseline is now classified `public` under `PH-DEC-019` and remains `DRAFT / PROPOSED - NOT APPROVED`; `resources/` and `archives/` are ignored. Historical findings remain in the [audit report](docs/reports/audit-2026-11-21/INDEX.md).
 

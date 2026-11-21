@@ -9,7 +9,7 @@ updated_at: "2026-11-21"
 owner: "ProjectHub Architecture - titulaire à confirmer"
 review_status: REQUIRED
 adr_status: PROPOSED
-poc_status: NOT_RUN
+poc_status: SYNTHETIC_POC_EXECUTED_IN_PR15
 related_open_questions: [PH-OPEN-002, PH-OPEN-006, PH-OPEN-016, PH-OPEN-020]
 related_adrs: [ADR-0004, ADR-0005, ADR-0019]
 publication_status: REVIEW_REQUIRED
@@ -17,7 +17,7 @@ publication_status: REVIEW_REQUIRED
 
 # Architecture & Engineering - ADR, isolation multi-tenant et permissions avant E0
 
-> **Édition publique candidate - draft.** Cette page est un **plan d'arbitrage technique**, pas une preuve que les décisions ont été approuvées ou qu'un système ProjectHub a été implémenté. Les responsables restent à désigner. Les tests proposés n'ont pas été exécutés. La démonstration E0 est limitée aux données synthétiques et n'accorde aucune autorisation de pilote E1.
+> **Édition publique candidate - draft.** Cette page est un **plan d'arbitrage technique**, pas une preuve que les décisions ont été approuvées ou qu'un système ProjectHub a été implémenté. Les responsables restent à désigner. Un **sous-ensemble synthétique** des tests d'isolation, de permissions et du POC PostgreSQL RLS a été exécuté dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15), avec [preuve CI](../reports/2026-11-21-p1-e0-rls-execution.md) ; cela ne clôt pas les ADR, les exigences ni tous les scénarios prévus. Le démonstrateur E0 n'accorde aucune autorisation de pilote E1.
 
 ## 1. Objet et résultat attendu
 
@@ -218,10 +218,10 @@ reviewer: null
 | `P02` | Constituer registre des 20 ADR | `NOT_STARTED` |
 | `P03` | Comparer alternatives `ADR-0004` | `NOT_STARTED` |
 | `P04` | Résoudre scopes et matrice `ADR-0005` | `NOT_STARTED` |
-| `P05` | Concevoir deux Organizations fictives | `NOT_STARTED` |
-| `P06` | Faire POC tenancy et permission | `NOT_STARTED` |
-| `P07` | Comparer RLS et option sans RLS | `NOT_STARTED` |
-| `P08` | Exécuter les tests négatifs prioritaires | `NOT_STARTED` |
+| `P05` | Concevoir deux Organizations fictives | `EXECUTED_IN_PR15_SYNTHETIC` |
+| `P06` | Faire POC tenancy et permission | `EXECUTED_IN_PR15_SYNTHETIC` |
+| `P07` | Comparer RLS et option sans RLS | `EXECUTED_IN_PR15_SYNTHETIC` |
+| `P08` | Exécuter les tests négatifs prioritaires | `PARTIAL_IN_PR15_SYNTHETIC` |
 | `P09` | Recueillir les approbations des ADR | `NOT_STARTED` |
 | `P10` | Prononcer Go/No-Go de `SLICE-00` | `NOT_STARTED` |
 

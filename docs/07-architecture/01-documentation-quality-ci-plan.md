@@ -7,8 +7,8 @@ classification: public
 created_at: "2026-11-21"
 updated_at: "2026-11-21"
 owner: "ProjectHub Engineering / Documentation - responsable à désigner"
-implementation_status: IMPLEMENTED_IN_P0_BRANCH
-validation_status: PR14_CI_PASS_AWAITING_MERGE
+implementation_status: IMPLEMENTED_ON_MAIN
+validation_status: MAIN_CI_PASS
 related_documents:
   - "docs/PUBLICATION-POLICY.md"
   - "docs/COLLABORATION-BEST-PRACTICES.md"
@@ -21,13 +21,13 @@ related_documents:
 
 # ProjectHub - Qualité documentaire automatisée avec GitHub Actions
 
-> **Spécification publique candidate avec implémentation proposée dans le lot P0.** Au commit de référence de `main` après la PR #12 (`f20ab25`), aucune CI documentaire n'était présente. Le nouveau workflow, le validateur et les fixtures sont désormais proposés sur une branche dédiée : [PR #14](https://github.com/tawounfouet/projecthub/pull/14). **Le premier [run GitHub Actions #44859773975](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) a réussi** sur le commit `4ec0b4c` (14 tests de fixtures, validation du dépôt : 0 anomalie). Ils ne sont pas déclarés opérationnels sur `main` avant fusion. Le succès de GitGuardian ne prouve pas la validité des liens ni des identifiants.
+> **Spécification publique candidate avec implémentation proposée dans le lot P0.** Au commit de référence de `main` après la PR #12 (`f20ab25`), aucune CI documentaire n'était présente. Le nouveau workflow, le validateur et les fixtures sont désormais proposés sur une branche dédiée : [PR #14](https://github.com/tawounfouet/projecthub/pull/14). **Le premier [run GitHub Actions #44859773975](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) a réussi** sur le commit `4ec0b4c` (14 tests de fixtures, validation du dépôt : 0 anomalie). Ils sont opérationnels sur `main` depuis la fusion de la PR #14 ; [run après fusion réussi](https://github.com/tawounfouet/projecthub/actions/runs/44860486972). Le succès de GitGuardian ne prouve pas la validité des liens ni des identifiants.
 
 **Finalité :** passer d'une revue documentaire manuelle et ponctuelle à des contrôles reproductibles à chaque PR, tout en maintenant une revue humaine de confidentialité, d'exactitude et de décision métier.
 
-**État de livraison :** ce plan est déjà publié ; l'implémentation P0 propose `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, `tests/test_docs_quality.py`, `docs/quality/requirements.txt` et `docs/quality/README.md`. Le résultat GitHub Actions a été vérifié sur le SHA `4ec0b4c` lors du premier run de la PR #14 ; tout nouveau commit nécessite un nouveau contrôle.
+**État de livraison :** ce plan et son implémentation sont publiés ; la PR #14 a fusionné `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, `tests/test_docs_quality.py`, `docs/quality/requirements.txt` et `docs/quality/README.md`. Le résultat GitHub Actions a été vérifié sur le SHA `4ec0b4c` lors du premier run de la PR #14 ; tout nouveau commit nécessite un nouveau contrôle.
 
-**Périmètre :** `README.md`, les documents de `docs/`, les illustrations liées, les index, les métadonnées YAML, les registres d'identifiants, puis les liens externes lors d'une phase ultérieure. Ce lot **n'implémente pas** Django, Next.js, ni le MVP E0.
+**Périmètre :** `README.md`, les documents de `docs/`, les illustrations liées, les index, les métadonnées YAML, les registres d'identifiants, puis les liens externes lors d'une phase ultérieure. Ce lot P0 n'implémentait pas Django/Next.js : le code candidat E0 est livré séparément par [PR #15](https://github.com/tawounfouet/projecthub/pull/15).
 
 ## 1. Situation actuelle et besoin
 

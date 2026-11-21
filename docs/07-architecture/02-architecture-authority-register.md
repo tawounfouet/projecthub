@@ -15,7 +15,7 @@ related_open_questions: [PH-OPEN-002, PH-OPEN-006, PH-OPEN-016, PH-OPEN-020]
 
 # ProjectHub - Registre des autorités d'architecture avant E0
 
-> **Statut : DRAFT / AUCUNE NOMINATION APPROUVÉE.** Ce registre rend les mandats et les décisions à obtenir explicites. La publication d'une PR, l'assignation d'une issue GitHub ou le rôle de mainteneur du dépôt ne constituent pas la désignation d'une autorité architecture, sécurité, métier ou juridique. Aucun ADR n'est `ACCEPTED`. Aucun POC E0 n'est attesté.
+> **Statut : DRAFT / AUCUNE NOMINATION APPROUVÉE.** Ce registre rend les mandats et les décisions à obtenir explicites. La publication d'une PR, l'assignation d'une issue GitHub ou le rôle de mainteneur du dépôt ne constituent pas la désignation d'une autorité architecture, sécurité, métier ou juridique. Aucun ADR n'est `ACCEPTED`. Un POC PostgreSQL RLS et des tests E0 sur données fictives ont été [exécutés en PR #15](../reports/2026-11-21-p1-e0-rls-execution.md), mais aucune autorité n'en a approuvé la portée ni accordé un GO officiel E0.
 
 ## 1. Coordination de la nomination
 
