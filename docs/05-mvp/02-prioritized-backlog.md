@@ -136,16 +136,16 @@ La catégorie et la priorité correspondent au registre source. Les livrables ci
 
 ### SLICE-06 - EPIC-PILOT-READINESS
 
-| ID | Type | Priorité | Travail candidat | Preuve attendue |
-|---|---|---|---|---|
-| `PH-BLG-038` | Gate | P0-G | Accord institutionnel et plan de données | Décision et périmètre autorisés |
-| `PH-BLG-039` | Gate | P0-G | Isolation et protection des secrets pour E1 | Tests négatifs et scans revus |
-| `PH-BLG-040` | Gate | P0-G | Sauvegarde et restauration | Restauration réellement vérifiée |
-| `PH-BLG-041` | Gate | P0-G | Support, incidents et continuité | Runbook, responsables et exercice |
-| `PH-BLG-042` | Gate | P0-G | Accessibilité des parcours pilotes | Tests, rapport et corrections |
-| `PH-BLG-043` | Gate | P0-G | Changements, CI et rollback | Non-régression et retour arrière éprouvé |
-| `PH-BLG-044` | Gate | P0-G | Réversibilité, rétention et sortie | Export, retrait et purge documentés |
-| `PH-BLG-045` | Gate | P0-G | Décision formelle Go/No-Go E1 | PV d'autorité et risques résiduels |
+| ID | Type | Priorité | Travail candidat | Preuve attendue | Gate couvert |
+|---|---|---|---|---|---|
+| `PH-BLG-038` | Gate | P0-G | Accord institutionnel et plan de données | Décision et périmètre autorisés | `G-LEGAL-DATA` |
+| `PH-BLG-039` | Gate | P0-G | Isolation et protection des secrets pour E1 | Tests négatifs et scans revus | `G-ACCESS`, `G-SECRETS` |
+| `PH-BLG-040` | Gate | P0-G | Sauvegarde et restauration | Restauration réellement vérifiée | `G-BACKUP` |
+| `PH-BLG-041` | Gate | P0-G | Support, incidents et continuité | Runbook, responsables et exercice | `G-OPERATE` |
+| `PH-BLG-042` | Gate | P0-G | Accessibilité des parcours pilotes | Tests, rapport et corrections | `G-ACCESSIBILITY` |
+| `PH-BLG-043` | Gate | P0-G | Changements, CI et rollback | Non-régression et retour arrière éprouvé | `G-CHANGE` |
+| `PH-BLG-044` | Gate | P0-G | Réversibilité, rétention et sortie | Export, retrait et purge documentés | `G-DATA-EXIT` |
+| `PH-BLG-045` | Gate | P0-G | Décision formelle Go/No-Go E1 | PV d'autorité et risques résiduels | Toutes gates |
 
 **Aucun item de cette table n'est réalisé au moment de cette édition documentaire.**
 

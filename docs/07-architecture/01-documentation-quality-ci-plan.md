@@ -219,7 +219,7 @@ projecthub/
 │   ├── 04-domain/
 │   ├── 05-mvp/
 │   ├── 06-validation/
-│   └── 07-architecture/              # présent sur la PR #11, pas encore sur main
+│   └── 07-architecture/              # présent sur main (fusionné via PR #11)
 └── README.md
 ```
 

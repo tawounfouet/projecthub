@@ -5,7 +5,7 @@ version: "0.1.0"
 status: draft
 classification: public
 created_at: "2026-11-20"
-updated_at: "2026-11-20"
+updated_at: "2026-11-21"
 sources: [PH-CNV-001, PH-CNV-004, PH-GH-001]
 related_documents:
   - "docs/00-context/01-source-register.md"
@@ -14,7 +14,7 @@ related_documents:
 
 # ProjectHub - Registre public des décisions
 
-> **Registre de travail, non procès-verbal d'approbation.** Les entrées `PH-DEC-001` à `PH-DEC-018` correspondent aux décisions, orientations et actions enregistrées dans le registre de Discovery. Un ID ou l'expression « décision » ne suffit pas à prouver qu'un choix technique ou commercial est définitivement arrêté.
+> **Registre de travail, non procès-verbal d'approbation.** Les entrées `PH-DEC-001` à `PH-DEC-018` correspondent aux décisions, orientations et actions enregistrées dans le registre de Discovery. La décision `PH-DEC-019` est enregistrée dans la section 4. Un ID ou l'expression « décision » ne suffit pas à prouver qu'un choix technique ou commercial est définitivement arrêté.
 
 ## 1. Sémantique des statuts
 
@@ -77,7 +77,9 @@ Ce tableau ne crée pas de nouveaux `PH-DEC`. Un changement de statut nécessite
 | [`85c1a59`](https://github.com/tawounfouet/projecthub/commit/85c1a59a1483048f02578c87c58801d9bab96181) | Dossiers, modèles d'issues, premiers documents |
 | [`5f45729`](https://github.com/tawounfouet/projecthub/commit/5f45729f19a26e7018556e4f4aa432bb2ecb85c2) | Politique publique de publication et index |
 
-Le lot PUBLIC-01 est préparé **en proposition de pull request**. Une PR ouverte ne constitue pas une fusion ni une approbation du contenu.
+Les lots PUBLIC-01 à PUBLIC-04 sont **fusionnés sur `main`**. Leur fusion ne constitue pas une approbation métier du contenu (voir le [bilan de publication](../reports/2026-11-21-discovery-baseline-publication-bilan.md)).
+
+**`PH-DEC-019` - Publication de l'édition exhaustive `PH-AEB-001` (2026-11-21).** Option B retenue : maintenir le document suivi dans `docs/07-architecture/`, passer sa classification à `public` et conserver `status: DRAFT / PROPOSED - NOT APPROVED`. Justification : le contrôle d'audit n'a identifié ni secret actif ni donnée pilote nominative ; le document reste une proposition non approuvée. Risque résiduel : le contenu exhaustif demeure public ; toute promotion de statut exige une décision séparée. Source : `docs/07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md:1-13`.
 
 ## 5. Comment approuver une nouvelle décision
 

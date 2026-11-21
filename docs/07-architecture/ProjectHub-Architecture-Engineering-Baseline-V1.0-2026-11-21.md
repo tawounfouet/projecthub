@@ -3,7 +3,7 @@ id: PH-AEB-001
 title: "ProjectHub - Architecture & Engineering Baseline V1.0"
 version: "1.0.0-draft"
 status: "DRAFT / PROPOSED - NOT APPROVED"
-classification: "INTERNAL - exhaustive working edition"
+classification: public
 created_at: "2026-11-21"
 updated_at: "2026-11-21"
 owner: "ProjectHub Architecture / Product / Engineering - to be assigned formally"
@@ -33,9 +33,9 @@ related_documents:
 
 # ProjectHub Architecture & Engineering Baseline V1.0
 
-**Édition interne exhaustive, datée du 21 novembre 2026.**
+**Édition exhaustive publique, datée du 21 novembre 2026.**
 
-> **Lecture obligatoire.** Ce document est une **baseline de conception proposée** destinée à transformer la Discovery en décisions architecturales, contrats de code, standards d'ingénierie et plan d'implémentation E0. Il ne prouve pas qu'un backend, un frontend, des modèles, des tests, une infrastructure ou une offre SaaS fonctionnent déjà. Aucune recommandation ici ne clôt automatiquement une question `PH-OPEN`, une réserve `PH-REV`, un ADR ou une gate E1. Une version publique devra être relue et expurgée séparément.
+> **Lecture obligatoire.** Ce document est une **baseline de conception proposée** destinée à transformer la Discovery en décisions architecturales, contrats de code, standards d'ingénierie et plan d'implémentation E0. Il ne prouve pas qu'un backend, un frontend, des modèles, des tests, une infrastructure ou une offre SaaS fonctionnent déjà. Aucune recommandation ici ne clôt automatiquement une question `PH-OPEN`, une réserve `PH-REV`, un ADR ou une gate E1. Le mainteneur a enregistré l'acceptation de cette édition exhaustive dans [`PH-DEC-019`](../00-context/03-decisions-register.md); cette publication ne modifie ni le statut `DRAFT / PROPOSED - NOT APPROVED` ni l'absence d'ADR approuvé.
 
 **Navigation :** [1. Synthèse](#1-synthèse-exécutive-et-portes-de-décision) | [4. Architecture](#4-architecture-logique-et-c4) | [7. Modèle de données](#7-modèle-de-données-et-invariants) | [8. Permissions](#8-autorisation-rbac-et-identités) | [11. API](#11-api-rest-et-contrats-de-service) | [16. Qualité](#16-stratégie-de-tests-et-preuves) | [23. Plan E0](#23-plan-de-réalisation-du-premier-e0) | [27. ADR](#27-registre-dadr-candidats).
 
