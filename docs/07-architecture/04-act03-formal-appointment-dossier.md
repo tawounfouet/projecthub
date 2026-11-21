@@ -26,6 +26,8 @@ Organiser uniquement le suivi technique et les décisions du démonstrateur Proj
 | Sécurité indépendante | GOV-04 | Nommé séparément, habilité et indépendant de l'auteur du POC ; aucun audit indépendant implicite |
 | Protection des données E0 | GOV-09 si applicable | Garantir le caractère fictif des données ; aucun mandat de DPO ni d'autorisation E1 |
 
+**Modèles publics complémentaires :** [ACT03-PROTOCOL](06-act03-protocol-public-draft.md) et [ACT03-APPOINTMENT](07-act03-appointment-public-draft.md). Ce sont des instruments à compléter, non des décisions déjà prises.
+
 ## Acte A - Institution du protocole (à compléter par l'autorité compétente)
 
 ```yaml

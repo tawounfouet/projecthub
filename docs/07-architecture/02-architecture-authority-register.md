@@ -120,6 +120,8 @@ Pour qu'une fonction soit marquée comme attribuée, l'autorité de nomination, 
 
 Jusqu'à ces validations, les nominations et l'instauration du protocole sont `PENDING`, les `PH-OPEN-002/006/016` restent `OPEN`, `ACT-04` et `ACT-05` restent `BLOCKED`, les ADR restent `PROPOSED`, E0 n'est pas `GO` et E1 reste `NO-GO`. L'issue #13 demeure ouverte jusqu'à vérification humaine de ses critères de clôture.
 
+Les projets d'actes ACT03-PROTOCOL et ACT03-APPOINTMENT sont accessibles dans leurs [modèles publics](06-act03-protocol-public-draft.md) et [modèles de nomination](07-act03-appointment-public-draft.md). Leur publication documentaire ne modifie **aucun** titulaire, mandat ou statut de décision dans ce registre.
+
 ## 7. Références
 
 - [Issue ACT-03 #13 et accord de principe](https://github.com/tawounfouet/projecthub/issues/13)
