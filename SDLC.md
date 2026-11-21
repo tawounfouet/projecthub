@@ -10,12 +10,12 @@ Ce document est une carte de navigation du cycle de vie ProjectHub. Il distingue
 | Audit documentaire B1..B9 | Correctifs intégrés via [PR #12](https://github.com/tawounfouet/projecthub/pull/12), fusionnée le 21 novembre 2026 | Ne pas rouvrir des constats historiques sans preuve nouvelle |
 | Architecture exhaustive `PH-AEB-001` | Publiée sous `PH-DEC-019` avec classification `public` | `DRAFT / PROPOSED - NOT APPROVED` ; aucun ADR accepté automatiquement |
 | Agents OpenCode | Définitions versionnées dans `.agents/` et adaptateurs `.opencode/` | Tests d'intégration à réaliser avant revendication d'exécution |
-| CI de qualité documentaire | **Fusionnée sur `main`** via [PR #14](https://github.com/tawounfouet/projecthub/pull/14), commit `547c684b` | [Run GitHub après fusion réussi](https://github.com/tawounfouet/projecthub/actions/runs/44860486972) |
+| CI de qualité documentaire | Workflow et validateur fusionnés sur `main` via la [PR #14](https://github.com/tawounfouet/projecthub/pull/14) | [Run post-fusion réussi](https://github.com/tawounfouet/projecthub/actions/runs/44860486972) au SHA `547c684` |
 | Décision d'architecture pré-E0 | Autorités à nommer ; `ADR-0004/0005/0019` proposés | [Issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13) et [registre de mandat](docs/07-architecture/02-architecture-authority-register.md) |
-| Application E0 | [PR #15](https://github.com/tawounfouet/projecthub/pull/15) propose Django/DRF + Next.js + PostgreSQL et un POC RLS sur données fictives | [CI E0 #44862176849](https://github.com/tawounfouet/projecthub/actions/runs/44862176849) réussie sur `ae3aa6f` (20 tests Django et 2 smoke HTTP) ; ADR et GO E0 non approuvés |
+| Expérimentation E0 synthétique | [PR #15](https://github.com/tawounfouet/projecthub/pull/15) ouverte; POC PostgreSQL RLS, essais synthétiques, CI réussie | [run E0 le plus récent validé](https://github.com/tawounfouet/projecthub/actions/runs/44869435535) et [run documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44869435189) au SHA `e39532a`; aucune décision ADR ni GO E0 |
 | Pilote E1 | `NO-GO` | Autorisations et huit gates à démontrer séparément |
 
-**Référence Git P0 :** [commit de fusion de PR #14](https://github.com/tawounfouet/projecthub/commit/547c684b1d52f4913c01a0adf91acdb5a87431a7). La branche P1 est distincte et ne remplace pas les décisions humaines d'architecture.
+**Référence Git :** [commit de `main` après PR #12](https://github.com/tawounfouet/projecthub/commit/f20ab25f27c4f7e5d91def4319e9cf66bbdccdde). Ce SHA est un **repère historique**, pas l'affirmation que `main` ne changera plus.
 
 ## 2. Carte SDLC et état des étapes
 
@@ -29,22 +29,23 @@ Audit P0      Correction P0      Fixtures CI        PR + approbation   Fusion d�
                    Docs, CI, ADR                         Aucun service E0
 ```
 
-Les PR #12 et #14 sont **fusionnées**. Le chantier P1 dans [PR #15](https://github.com/tawounfouet/projecthub/pull/15) apporte du code de démonstration et doit passer migrations, tests API, build Next.js, SQL RLS et smoke HTTP. `DEPLOY` dans le cadre E0 signifie seulement démarrage d'une stack locale synthétique, jamais une mise en production.
+Les PR #12, #14 et #17 sont **fusionnées** (la #17 publie uniquement une proposition de gouvernance). La PR #15 reste en revue et ses essais synthétiques ne constituent pas une autorisation E0. Le mot `DEPLOY` signifie ici intégration documentaire ou démarrage local d'une stack de démonstration : aucun service de production n'est déployé.
 
 ## 3. Remédiation post-PR #12
 
 | Action | Livrable | État dans le lot en cours | Critère de clôture |
 |---|---|---|---|
-| `ACT-01` : cohérence des statuts | Ce SDLC, plan ADR, index | Terminé sur `main` via PR #14 | Rester synchronisé sur l'évolution P1 |
-| `ACT-02` : CI documentaire | `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, tests synthétiques | Fusionnée via PR #14, validée sur `main` | Vérifier le statut des contrôles sur chaque PR |
+| `ACT-01` : cohérence des statuts | Ce SDLC, plan ADR, index | Intégré sur `main` via PR #14 | Synchroniser les statuts avec les preuves nouvelles |
+| `ACT-02` : CI documentaire | `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, tests synthétiques | Fusionnée via PR #14; run post-fusion réussi sur `main` | Vérifier les checks sur le SHA de chaque PR |
 | `ACT-03` : autorités d'architecture | Registre versionné et [issue #13](https://github.com/tawounfouet/projecthub/issues/13) | Coordination ouverte, nominations `PENDING` | Mandats, titulaires, délégations et décision signés |
-| `ACT-04` et `ACT-05` | Arbitrages et POC tenant/RBAC/RLS | `BLOCKED` avant nominations et preuves | ADR approuvés et tests réels sur données fictives |
+| `ACT-04` et `ACT-05` | Arbitrages et POC tenant/RBAC/RLS | `BLOCKED` en attente des mandats et décisions; preuves POC synthétiques partielles dans PR #15 | ADR approuvés, revue indépendante et critères restants traités |
 
-`ACT-01` et `ACT-02` sont vérifiés après fusion P0. `ACT-03` reste bloqué par les nominations. Le POC RLS P1 ne vaut pas décision officielle `ADR-0019` ; un résultat CI vert ne signe pas une décision d'architecture.
+`ACT-01` et `ACT-02` sont intégrés sur `main` après PR #14. Le POC RLS et des tests synthétiques exécutés dans PR #15 n'approuvent pas `ADR-0004/0005/0019`, ne remplacent pas GOV-04 et ne signent pas un GO E0.
 
 ## 4. Commandes de vérification
 
-Pour le candidat E0, suivre le [runbook local](E0.md) et la [CI d'intégration](.github/workflows/e0-foundation.yml) ; aucune donnée réelle n'est permise. Les checks E0 supplémentaires portent sur POC PostgreSQL RLS, migrations, API Django, Next.js et HTTP smoke.
+Pour le lot expérimental E0, suivre le [runbook local](E0.md) et la [CI d'intégration](.github/workflows/e0-foundation.yml). Les tests visent des Organizations fictives ; ils ne donnent pas un GO officiel ni une autorisation de traiter des données réelles.
+
 
 À la racine du clone, après installation des dépendances Python du lot CI :
 

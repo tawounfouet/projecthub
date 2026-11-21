@@ -1,6 +1,6 @@
 # 07 - Architecture & Engineering
 
-Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de **ProjectHub Architecture & Engineering Baseline V1.0**. Aucun ADR n'est considéré comme approuvé, aucun POC comme exécuté et aucun socle E0 comme livré du seul fait de leur publication.
+Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de **ProjectHub Architecture & Engineering Baseline V1.0**. Aucun ADR n'est considéré comme approuvé. Un POC RLS et un sous-ensemble de tests E0 synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15); ces preuves ne valent ni approbation ADR ni GO officiel E0, même si le code candidat est intégré au dépôt.
 
 ## Documents
 
@@ -8,10 +8,11 @@ Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de 
 |---|---|
 | [00-adr-tenancy-permissions-pre-e0-plan.md](00-adr-tenancy-permissions-pre-e0-plan.md) | **Édition publique expurgée**, `draft`, plan d'ADR, isolation et permissions |
 | [ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | **Édition exhaustive conservée intégralement**, 1 815 lignes, classée `public` depuis `PH-DEC-019`, toujours `DRAFT / PROPOSED - NOT APPROVED` |
-| [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow automatisé fusionné sur `main` via PR #14 |
-| [02-architecture-authority-register.md](02-architecture-authority-register.md) | **Registre des autorités pré-E0**, `draft`, mandats proposés et nominations formelles en attente |
-| [03-adr-0019-rls-poc-decision.md](03-adr-0019-rls-poc-decision.md) | **Comparatif POC RLS exécuté en CI**, R-2 recommandé mais non approuvé, [issue #16](https://github.com/tawounfouet/projecthub/issues/16) |
-| [Bilan d'exécution P1](../reports/2026-11-21-p1-e0-rls-execution.md) | POC RLS, tests Django, Next et Docker Compose, décisions restant à prendre |
+| [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow et validateur intégrés dans `main` via la PR #14 |
+| [02-architecture-authority-register.md](02-architecture-authority-register.md) | **Registre des autorités pré-E0**, `draft`, cumul opérationnel proposé, actes à formaliser et revue indépendante GOV-04 `PENDING` |
+| [03-adr-0019-rls-poc-decision.md](03-adr-0019-rls-poc-decision.md) | **Comparatif POC PostgreSQL RLS**, R-2 recommandé mais `PROPOSED`, [issue #16](https://github.com/tawounfouet/projecthub/issues/16) |
+| [Bilan d'exécution P1](../reports/2026-11-21-p1-e0-rls-execution.md) | Tests PostgreSQL, Django, Next.js et Compose avec preuves CI |
+| [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Expérimentation sur deux Organizations fictives, sans GO officiel E0 |
 
 ## Décision de publication
 
@@ -24,7 +25,7 @@ Cette décision ne remplace pas la relecture humaine prescrite par la [politique
 - Faire désigner formellement les responsables et les autorités des ADR, selon le [registre de mandat](02-architecture-authority-register.md) et l'[issue #13](https://github.com/tawounfouet/projecthub/issues/13).
 - Comparer les options d'isolation multi-tenant (`ADR-0004`).
 - Définir les permissions, memberships, grants et mandats métier (`ADR-0005`).
-- Évaluer PostgreSQL RLS par un POC sans présumer de son adoption (`ADR-0019`).
+- Examiner les résultats du POC PostgreSQL RLS exécuté dans la PR #15 sans présumer de son adoption (`ADR-0019`).
 - Préparer des scénarios E0 avec deux Organizations fictives et des tests de refus.
 - Maintenir E1 en `No-Go` tant que les autorisations et gates applicables ne sont pas démontrées.
 
