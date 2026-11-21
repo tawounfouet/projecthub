@@ -8,6 +8,7 @@ Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de 
 |---|---|
 | [00-adr-tenancy-permissions-pre-e0-plan.md](00-adr-tenancy-permissions-pre-e0-plan.md) | **Édition publique expurgée**, `draft`, plan d'ADR, isolation et permissions |
 | [ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | **Source exhaustive conservée intégralement**, 1 815 lignes, encore marquée `INTERNAL` et `DRAFT / PROPOSED` |
+| [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow GitHub Actions **proposé / non implémenté** |
 
 ## Avertissement de publication
 
