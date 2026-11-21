@@ -14,6 +14,12 @@ Ce dossier contient les **éditions publiques autonomes et expurgées** du lot *
 | [03-cross-organization-needs.md](03-cross-organization-needs.md) | Analyse des 29 familles de besoins normalisées |
 | [04-current-vs-target-workflows.md](04-current-vs-target-workflows.md) | 32 workflows candidats As-Is / To-Be, généralisés |
 
+## Complément post-Discovery
+
+- [05-priority-questions-and-user-research-plan.md](05-priority-questions-and-user-research-plan.md) - plan public candidat de désignation des responsables et d'entretiens pour `PH-OPEN-007`, `PH-OPEN-001` et `PH-OPEN-024`.
+
+**Complément hors des 25 documents historiques de Discovery Baseline V1.0.** Les responsables restent à désigner et aucun entretien ni exercice E0 n'est déclaré exécuté.
+
 ## Interprétation
 
 - Les personnes et structures évoquées dans les versions privées ne sont pas identifiées ici.
