@@ -1,12 +1,13 @@
-# Project agents, skills and commands
+# Project agents, skills, commands and rules
 
-Ce dossier contient les définitions canoniques des agents, skills et commandes utiles à ProjectHub. Elles sont indépendantes de la machine locale : elles vivent dans le dépôt et suivent donc le projet sur un autre poste.
+Ce dossier contient les définitions canoniques des agents, skills, commandes et règles utiles à ProjectHub. Elles sont indépendantes de la machine locale : elles vivent dans le dépôt et suivent donc le projet sur un autre poste.
 
 OpenCode ne charge pas automatiquement `.agents/` comme dossier d'agents, de skills ou de commandes. Les adaptateurs réellement chargés sont dans `.opencode/agents/`, `.opencode/skills/` et `.opencode/commands/` ; chacun lit la définition canonique correspondante ici.
 
 - agents : voir le tableau ci-dessous
 - skills : voir `.agents/skills/README.md`
 - commandes : voir `.agents/commands/README.md`
+- règles : voir `.agents/rules/typography.md`
 
 | Agent | Rôle |
 |---|---|

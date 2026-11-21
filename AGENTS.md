@@ -27,10 +27,11 @@
 - `ANALYSE_CRITIQUE.md` is opinion, `RECOMMANDATIONS.md` is action, `DOCUMENTATION-SYSTEM.md` is descriptive, and `INDEX.md` is the navigation entry point.
 - Check relative links between the five audit documents and `README.md` after any edit; see `docs/reports/audit-2026-11-21/INDEX.md`.
 
-## Local agents, skills and commands
+## Local agents, skills, commands and rules
 - `.agents/` holds the canonical, machine-independent agent definitions for this project: `ph-docs-guardian`, `ph-audit-reviewer`, `ph-sdlc-guide`, `ph-link-checker`, and `ph-commit-planner`.
 - `.agents/skills/` holds the canonical skill definitions: `repo-audit`, `sdlc-orchestrator`, `git-hygiene`, `session-archive`, `docs-writer`, and `docs-reviewer`.
 - `.agents/commands/` holds the canonical command definitions: `audit`, `sdlc`, `review`, `pr-review`, `docs`, `commit`, `archive`, and `link-check`.
+- `.agents/rules/` holds project-wide rules, starting with `typography.md`: never emit U+2014; use ASCII hyphen-minus in every generated response and file.
 - `.opencode/agents/`, `.opencode/skills/`, and `.opencode/commands/` hold thin OpenCode adapters that load those definitions. OpenCode auto-discovers files in `.opencode/`, not in `.agents/`.
 - Keep each adapter pointing to its canonical file in `.agents/`. After adding or changing an adapter, quit and restart OpenCode; config is loaded once at startup.
-- Local agents, skills, and commands never commit, push, open a PR, or approve publication without an explicit maintainer action.
+- Local agents, skills, commands, and rules never commit, push, open a PR, or approve publication without an explicit maintainer action.
