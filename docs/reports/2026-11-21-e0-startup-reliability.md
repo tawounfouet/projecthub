@@ -7,7 +7,7 @@ classification: public
 created_at: "2026-11-21"
 updated_at: "2026-11-21"
 source_issue: "https://github.com/tawounfouet/projecthub/issues/19"
-proof_status: PENDING_CI
+proof_status: VERIFIED_PR_RUN
 ---
 
 # Issue #19 - Diagnostic et expérience reproductible
@@ -37,3 +37,13 @@ Hypothèses, non prouvées : `runserver` et sa gestion des connexions HTTP/autor
 | Données réelles, approbations ADR, E1 | Strictement exclus |
 
 Les trois démarrages réussis prouveront la stabilité dans ces conditions de CI, pas une garantie générale d'absence d'incidents. Ce lot n'est pas une autorisation officielle E0 et E1 reste NO-GO.
+
+## Résultat CI du correctif
+
+- Révision testée : `4a253483606e1f410bf53178adaac4352710e91e`.
+- [GitHub Actions #44871834736](https://github.com/tawounfouet/projecthub/actions/runs/44871834736) : jobs `E0 PostgreSQL / DRF / Next / RLS` et `E0 Docker Compose integration` terminés avec `success`.
+- Les logs du job Compose contiennent explicitement les trois marqueurs : `E0_COMPOSE_CLEAN_START_1_PASSED`, `E0_COMPOSE_CLEAN_START_2_PASSED`, `E0_COMPOSE_CLEAN_START_3_PASSED`.
+- Aucun `ECONNRESET` ni `AssertionError` n'a été relevé dans ce run. Les 22 tests Django, la validation TypeScript, le build Next et le POC RLS ont également réussi.
+- Contrôle GitGuardian et Documentation Quality sur le même SHA : `success`.
+
+La réussite d'un nouveau SHA de documentation doit toujours être contrôlée séparément avant fusion. Cette preuve sur une révision précise ne transforme pas les hypothèses de cause en certitude.
