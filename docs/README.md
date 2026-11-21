@@ -85,8 +85,9 @@ La baseline Discovery historique reste composée de **25 documents**. Les docume
 |---|---|---|
 | [Plan de recherche utilisateurs](02-discovery/05-priority-questions-and-user-research-plan.md) | `PH-OPEN-007`, `PH-OPEN-001`, `PH-OPEN-024`, rôles à désigner et entretiens | Draft public |
 | [Plan ADR, tenancy et permissions avant E0](07-architecture/00-adr-tenancy-permissions-pre-e0-plan.md) | `ADR-0004`, `ADR-0005`, `ADR-0019`, tests fictifs A/B | Draft public |
-| [Architecture & Engineering Baseline V1.0 exhaustive](07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | Document source **intégral**, non expurgé, à examiner spécialement | **Classification INTERNAL conservée ; publication à autoriser explicitement** |
+| [Architecture & Engineering Baseline V1.0 exhaustive](07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | Document source **intégral**, non expurgé, publication acceptée par `PH-DEC-019` | **Classification publique ; statut `DRAFT / PROPOSED - NOT APPROVED` inchangé** |
 | [Plan de CI documentaire](07-architecture/01-documentation-quality-ci-plan.md) | Liens Markdown, frontmatter, continuité des IDs, confidentialité et workflow GitHub Actions à développer | **Draft public - non implémenté** |
+| [Audit documentaire 2026-11-21](reports/audit-2026-11-21/INDEX.md) | Faits, verdict, recommandations, système documentaire et navigation produits par l'audit du dépôt | **Livrables d'audit - état observé au 2026-11-21** |
 
 Lire l'[index Architecture](07-architecture/README.md) et la [politique de publication](PUBLICATION-POLICY.md). Les décisions ADR, la validation métier et les gates E1 restent en attente.
 
