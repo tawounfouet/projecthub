@@ -10,7 +10,7 @@ Ce document est une carte de navigation du cycle de vie ProjectHub. Il distingue
 | Audit documentaire B1..B9 | Correctifs intégrés via [PR #12](https://github.com/tawounfouet/projecthub/pull/12), fusionnée le 21 novembre 2026 | Ne pas rouvrir des constats historiques sans preuve nouvelle |
 | Architecture exhaustive `PH-AEB-001` | Publiée sous `PH-DEC-019` avec classification `public` | `DRAFT / PROPOSED - NOT APPROVED` ; aucun ADR accepté automatiquement |
 | Agents OpenCode | Définitions versionnées dans `.agents/` et adaptateurs `.opencode/` | Tests d'intégration à réaliser avant revendication d'exécution |
-| CI de qualité documentaire | Absente du commit `main` de référence `f20ab25` | Nouveau workflow et tests soumis au lot P0 ; vérifier le run de PR |
+| CI de qualité documentaire | Absente du commit `main` de référence `f20ab25` | Nouveau workflow et tests soumis dans la [PR #14](https://github.com/tawounfouet/projecthub/pull/14) ; [premier run réussi](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) sur le SHA `4ec0b4c` |
 | Décision d'architecture pré-E0 | Autorités à nommer ; `ADR-0004/0005/0019` proposés | [Issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13) et [registre de mandat](docs/07-architecture/02-architecture-authority-register.md) |
 | Application E0 | Aucun backend/frontend/DB migrée démontrés | Bootstrap après décisions structurantes |
 | Pilote E1 | `NO-GO` | Autorisations et huit gates à démontrer séparément |
@@ -36,7 +36,7 @@ La PR #12 est déjà **fusionnée**. Le travail P0 du présent cycle constitue *
 | Action | Livrable | État dans le lot en cours | Critère de clôture |
 |---|---|---|---|
 | `ACT-01` : cohérence des statuts | Ce SDLC, plan ADR, index | Proposé en branche P0 | Revue et fusion, aucune contradiction connue |
-| `ACT-02` : CI documentaire | `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, tests synthétiques | Proposé en branche P0, run GitHub à confirmer | Run lié au SHA, tests valides/invalides passants |
+| `ACT-02` : CI documentaire | `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, tests synthétiques | Validé par le premier run GitHub en PR #14 ; fusion et revue encore en attente | Run lié au SHA, tests valides/invalides passants |
 | `ACT-03` : autorités d'architecture | Registre versionné et [issue #13](https://github.com/tawounfouet/projecthub/issues/13) | Coordination ouverte, nominations `PENDING` | Mandats, titulaires, délégations et décision signés |
 | `ACT-04` et `ACT-05` | Arbitrages et POC tenant/RBAC/RLS | `BLOCKED` avant nominations et preuves | ADR approuvés et tests réels sur données fictives |
 
