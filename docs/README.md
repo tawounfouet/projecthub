@@ -10,6 +10,8 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 **Bilan post-publication :** consulter le [retour d'expérience sur Discovery Baseline V1.0](reports/2026-11-21-discovery-baseline-publication-bilan.md) pour le résultat, les preuves GitHub, les limites et les prochaines étapes.
 
+**Exécution du lot P0 post-PR #12 :** voir le [bilan des correctifs, du run CI et des nominations en attente](reports/2026-11-21-p0-remediation-execution.md).
+
 ## Discovery Baseline V1.0
 
 | Section | Objet | État public |
