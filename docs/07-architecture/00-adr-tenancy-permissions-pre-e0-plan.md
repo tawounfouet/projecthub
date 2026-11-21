@@ -1,7 +1,7 @@
 ---
 id: PH-AE-DEC-EXEC-001
 title: "ProjectHub - Plan d'arbitrage ADR, multi-tenancy et permissions avant E0"
-version: "0.1.0"
+version: "0.2.0"
 status: draft
 classification: public
 created_at: "2026-11-21"
@@ -9,7 +9,7 @@ updated_at: "2026-11-21"
 owner: "ProjectHub Architecture - titulaire à confirmer"
 review_status: REQUIRED
 adr_status: PROPOSED
-poc_status: NOT_RUN
+poc_status: SYNTHETIC_POC_EXECUTED_IN_PR15
 related_open_questions: [PH-OPEN-002, PH-OPEN-006, PH-OPEN-016, PH-OPEN-020]
 related_adrs: [ADR-0004, ADR-0005, ADR-0019]
 publication_status: REVIEW_REQUIRED
@@ -17,11 +17,11 @@ publication_status: REVIEW_REQUIRED
 
 # Architecture & Engineering - ADR, isolation multi-tenant et permissions avant E0
 
-> **Édition publique candidate - draft.** Cette page est un **plan d'arbitrage technique**, pas une preuve que les décisions ont été approuvées ou qu'un système ProjectHub a été implémenté. Les responsables restent à désigner. Les tests proposés n'ont pas été exécutés. La démonstration E0 est limitée aux données synthétiques et n'accorde aucune autorisation de pilote E1.
+> **Édition publique candidate - draft.** Cette page est un **plan d'arbitrage technique**, pas une preuve que les décisions ont été approuvées ou qu'un système ProjectHub a été livré. Les responsables restent à désigner. Un sous-ensemble synthétique des tests d'isolation, de permissions et du POC PostgreSQL RLS a été exécuté dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15), avec [preuves CI](https://github.com/tawounfouet/projecthub/actions/runs/44862485190); cela ne clôt pas les ADR, les exigences ni tous les scénarios prévus. Le démonstrateur E0 n'accorde aucune autorisation de pilote E1.
 
 ## 1. Objet et résultat attendu
 
-Avant de développer les ressources métier tenant-scoped du premier incrément E0, ProjectHub doit documenter et arbitrer :
+Avant de retenir une conception tenant-scoped pour les ressources métier du premier incrément E0, ProjectHub doit documenter et arbitrer :
 
 1. **`ADR-0004`** : comment Organization, Workspace, Project et WorkItem sont isolés et reliés ;
 2. **`ADR-0005`** : comment les permissions s'obtiennent et sont révoquées, indépendamment des responsabilités métier ;
@@ -29,7 +29,7 @@ Avant de développer les ressources métier tenant-scoped du premier incrément 
 
 Ces décisions doivent être liées aux questions `PH-OPEN-002`, `PH-OPEN-006` et `PH-OPEN-016`, aux exigences, aux tests négatifs et à une autorité de décision identifiée.
 
-La phase d'étude peut utiliser un **POC isolé** pour éclairer les décisions ; le code du POC ne représente pas automatiquement le backend du MVP.
+Un **POC isolé** et un sous-ensemble des tests synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15) pour éclairer ces décisions. Ce code expérimental ne représente pas automatiquement le backend approuvé du MVP; aucun ADR n'est accepté par ces résultats.
 
 ## 2. Référentiel documentaire
 
@@ -208,7 +208,7 @@ status: NOT_RUN
 reviewer: null
 ```
 
-`NOT_RUN` et les valeurs nulles sont volontaires. Aucun test n'est réputé réalisé par la publication du protocole.
+`NOT_RUN` et les valeurs nulles illustrent un scénario vierge; ils ne décrivent pas l'état des essais exécutés séparément dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15). Ces essais ne couvrent qu'un sous-ensemble du plan et restent soumis à revue et validation humaine.
 
 ## 10. Registre de travail préalable à E0
 
@@ -218,10 +218,10 @@ reviewer: null
 | `P02` | Constituer registre des 20 ADR | `NOT_STARTED` |
 | `P03` | Comparer alternatives `ADR-0004` | `NOT_STARTED` |
 | `P04` | Résoudre scopes et matrice `ADR-0005` | `NOT_STARTED` |
-| `P05` | Concevoir deux Organizations fictives | `NOT_STARTED` |
-| `P06` | Faire POC tenancy et permission | `NOT_STARTED` |
-| `P07` | Comparer RLS et option sans RLS | `NOT_STARTED` |
-| `P08` | Exécuter les tests négatifs prioritaires | `NOT_STARTED` |
+| `P05` | Concevoir deux Organizations fictives | `EXECUTED_IN_PR15_SYNTHETIC` |
+| `P06` | Faire POC tenancy et permission | `EXECUTED_IN_PR15_SYNTHETIC` |
+| `P07` | Comparer RLS et option sans RLS | `EXECUTED_IN_PR15_SYNTHETIC` |
+| `P08` | Exécuter les tests négatifs prioritaires | `PARTIAL_IN_PR15_SYNTHETIC` |
 | `P09` | Recueillir les approbations des ADR | `NOT_STARTED` |
 | `P10` | Prononcer Go/No-Go de `SLICE-00` | `NOT_STARTED` |
 
@@ -235,7 +235,7 @@ Ces séquences sont des **propositions**, pas des Issues GitHub déjà ouvertes,
 | `ADR-0004` accepté avec son périmètre | `NOT_ASSESSED` |
 | `ADR-0005` accepté, matrice de permissions résolue | `NOT_ASSESSED` |
 | `ADR-0019` statué (adopter, rejeter ou différer avec motif) | `NOT_ASSESSED` |
-| POC et tests d'isolation / révocation exécutés sur données fictives | `NOT_ASSESSED` |
+| POC et tests d'isolation / révocation exécutés sur données fictives | `PARTIAL_IN_PR15_CI; REVIEW_PENDING` |
 | Risques résiduels traités et décision écrite | `NOT_ASSESSED` |
 | Démarrage de `SLICE-00` approuvé | `NOT_ASSESSED` |
 
