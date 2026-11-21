@@ -113,6 +113,8 @@ Start with [docs/README.md](docs/README.md). The public Discovery Baseline is or
 - [RECOMMANDATIONS.md](docs/reports/audit-2026-11-21/RECOMMANDATIONS.md) - prioritized fixes and acceptance criteria.
 - [DOCUMENTATION-SYSTEM.md](docs/reports/audit-2026-11-21/DOCUMENTATION-SYSTEM.md) - current document system and flows.
 - [AGENTS.md](AGENTS.md) - rules for future agents.
+- [SDLC.md](SDLC.md) - current lifecycle, post-PR #12 state and P0 follow-up.
+- [Documentation quality](docs/quality/README.md) - offline validator, tests and GitHub Actions workflow.
 
 There is no application to launch and no environment variables to configure in this repository; the available checks are described in [CODEBASE_ANALYSIS.md](docs/reports/audit-2026-11-21/CODEBASE_ANALYSIS.md).
 

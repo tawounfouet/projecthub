@@ -1,7 +1,7 @@
 # AGENTS.md - ProjectHub
 
 ## Repo shape
-- Documentation-only research repo in Discovery; no application source, package manifests, build/test/lint commands, or GitHub Actions workflows. Do not claim features, ADRs, E0 demos, or E1 pilots are approved or implemented; E1 remains `No-Go`.
+- Documentation-only research repo in Discovery; no Django/Next.js application, backend manifests or E0 infrastructure. The documentation validator, tests, pinned dependencies and GitHub Actions workflow are introduced by the P0 remediation branch (PR #14). Do not claim product features, ADRs, E0 demos or E1 pilots are approved or implemented; E1 remains `No-Go`.
 - The Django/DRF + Next.js/React/TypeScript/PostgreSQL stack and 13-domain map in `README.md` and the architecture baseline are target proposals, not delivered code.
 - `docs/README.md` is the public doc index. `docs/00-context/` through `docs/06-validation/` hold the 25 sanitized Discovery Baseline editions; later `docs/07-architecture/`, `docs/reports/`, and post-Discovery docs are additions outside that count.
 
@@ -19,7 +19,7 @@
 ## Workflow
 - Read `docs/PUBLICATION-POLICY.md` before content edits and `docs/COLLABORATION-BEST-PRACTICES.md` before PRs; both encode repo-specific review and publication rules.
 - Work in a focused `docs/...` branch as a PR Draft, then mark Ready. A maintainer comment in Conversation is not a GitHub `APPROVED` review. PUBLIC-01 to PUBLIC-04 were squash merged; PRs #7 to #11 appear as two-parent merges in local history. Do not claim a universal rule; update the index after merge.
-- Available preflight checks today: `git diff --check` and `git status --short` (including untracked and binary files). There is no configured doc-quality CI: `docs/07-architecture/01-documentation-quality-ci-plan.md` is `NOT_IMPLEMENTED`, not a script to run.
+- Preflight: `git diff --check`, `git status --short`, `python -m pip install -r docs/quality/requirements.txt`, `python -m unittest discover -s tests -p 'test_docs_quality.py' -v`, and `python scripts/docs_quality.py --strict` when the CI files exist in the checked-out ref. Check the matching GitHub Actions run and commit SHA; a passed check is not publication approval.
 - Public issues must exclude private pilot/customer data, transcripts, credentials, and security findings; report security issues privately, as stated in `.github/ISSUE_TEMPLATE/`.
 
 ## Audit deliverables

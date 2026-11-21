@@ -8,7 +8,8 @@ Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de 
 |---|---|
 | [00-adr-tenancy-permissions-pre-e0-plan.md](00-adr-tenancy-permissions-pre-e0-plan.md) | **Édition publique expurgée**, `draft`, plan d'ADR, isolation et permissions |
 | [ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | **Édition exhaustive conservée intégralement**, 1 815 lignes, classée `public` depuis `PH-DEC-019`, toujours `DRAFT / PROPOSED - NOT APPROVED` |
-| [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow GitHub Actions **proposé / non implémenté** |
+| [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, implémentation du workflow soumise au lot P0 (non fusionnée) |
+| [02-architecture-authority-register.md](02-architecture-authority-register.md) | **Registre des autorités pré-E0**, `draft`, mandats proposés et nominations formelles en attente |
 
 ## Décision de publication
 
@@ -18,7 +19,7 @@ Cette décision ne remplace pas la relecture humaine prescrite par la [politique
 
 ## Étapes de validation technique
 
-- Décider les responsables et les autorités des ADR.
+- Faire désigner formellement les responsables et les autorités des ADR, selon le [registre de mandat](02-architecture-authority-register.md) et l'[issue #13](https://github.com/tawounfouet/projecthub/issues/13).
 - Comparer les options d'isolation multi-tenant (`ADR-0004`).
 - Définir les permissions, memberships, grants et mandats métier (`ADR-0005`).
 - Évaluer PostgreSQL RLS par un POC sans présumer de son adoption (`ADR-0019`).
