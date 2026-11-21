@@ -83,7 +83,7 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 ## Plans complémentaires après Discovery Baseline V1.0
 
-La baseline Discovery historique reste composée de **25 documents**. Les documents ci-dessous sont des ajouts **postérieurs** pour préparer les validations produit et les arbitrages techniques. Un POC et des tests E0 synthétiques ont été exécutés dans la PR #15, avec des preuves de CI sur un SHA précis; ils ne constituent ni approbation d'ADR ni GO E0.
+La baseline Discovery historique reste composée de **25 documents**. Les documents ci-dessous sont des ajouts **postérieurs** pour préparer les validations produit et les arbitrages techniques. Un POC et des tests E0 synthétiques ont été intégrés sur `main` via la PR #15, avec preuves CI sur le commit de fusion `1095b7e`; ils ne constituent ni approbation d'ADR ni GO E0.
 
 | Document | Objet | Statut |
 |---|---|---|
@@ -92,7 +92,7 @@ La baseline Discovery historique reste composée de **25 documents**. Les docume
 | [Architecture & Engineering Baseline V1.0 exhaustive](07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | Document source **intégral**, non expurgé, publication acceptée par `PH-DEC-019` | **Classification publique ; statut `DRAFT / PROPOSED - NOT APPROVED` inchangé** |
 | [Plan de CI documentaire](07-architecture/01-documentation-quality-ci-plan.md) | Liens Markdown, frontmatter, continuité des IDs et workflow GitHub Actions | **Draft public - CI fusionnée sur `main` via la PR #14; run post-fusion réussi** |
 | [Registre des autorités d'architecture pré-E0](07-architecture/02-architecture-authority-register.md) | Cumul opérationnel proposé, actes de nomination à formaliser, revue indépendante GOV-04 `PENDING` et données synthétiques E0 | **Draft public - toutes les nominations `PENDING`; issue #13 ouverte** |
-| [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Comparaison RLS, tests Django/DRF et smoke tests | **CI réussie au SHA `e39532a`; ADR et GO E0 en attente** |
+| [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Comparaison RLS, tests Django/DRF et smoke tests | **PR #15 fusionnée, CI post-fusion réussie sur `1095b7e`; ADR et GO E0 en attente** |
 | [Bilan technique P1](reports/2026-11-21-p1-e0-rls-execution.md) | Protocole, scénarios A/B, résultats et limites du POC | **Preuves CI sur données synthétiques, aucune décision institutionnelle** |
 | [ADR-0019 - décision candidate](07-architecture/03-adr-0019-rls-poc-decision.md) | R-0/R-1/R-2 et arbitrage GOV-02/GOV-04 | **PROPOSED - issue #16 ouverte** |
 | [Audit documentaire 2026-11-21](reports/audit-2026-11-21/INDEX.md) | Faits, verdict, recommandations, système documentaire et navigation produits par l'audit du dépôt | **Livrables d'audit - état observé au 2026-11-21** |

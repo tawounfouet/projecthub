@@ -15,7 +15,7 @@ related_open_questions: [PH-OPEN-002, PH-OPEN-006, PH-OPEN-016, PH-OPEN-020]
 
 # ProjectHub - Registre des autorités d'architecture avant E0
 
-> **Statut : DRAFT / PROPOSITION DE GOUVERNANCE, AUCUNE NOMINATION APPROUVÉE.** Le commentaire du mainteneur sur l'[issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13#issuecomment-7056931493) autorise la préparation d'un modèle simplifié, pas la nomination d'une personne ni l'approbation d'un ADR. Les identités GitHub, l'assignation d'une issue, une review de PR et une fusion documentaire ne constituent pas un mandat. Un POC PostgreSQL RLS et un sous-ensemble de tests E0 synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15), avec les workflows [E0](https://github.com/tawounfouet/projecthub/actions/runs/44862485190) et [qualité documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44862485329) réussis sur `cd9e285`. La PR reste ouverte en attente de revue; ces preuves n'approuvent aucun ADR et n'accordent pas de GO E0. E1 reste `NO-GO`.
+> **Statut : DRAFT / PROPOSITION DE GOUVERNANCE, AUCUNE NOMINATION APPROUVÉE.** Le commentaire du mainteneur sur l'[issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13#issuecomment-7056931493) autorise la préparation d'un modèle simplifié, pas la nomination d'une personne ni l'approbation d'un ADR. Les identités GitHub, l'assignation d'une issue, une review de PR et une fusion documentaire ne constituent pas un mandat. Un POC PostgreSQL RLS et un sous-ensemble de tests E0 synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15), avec les workflows post-fusion [E0](https://github.com/tawounfouet/projecthub/actions/runs/44870333128) et [qualité documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44870333226) réussis sur `1095b7e`. La PR #15 est fusionnée en tant que démonstrateur synthétique; ces preuves n'approuvent aucun ADR et n'accordent pas de GO E0. E1 reste `NO-GO`.
 
 ## 1. Objet, portée et état
 
@@ -48,7 +48,7 @@ Le **bloc opérationnel candidat** comprend GOV-01, GOV-02, GOV-03, GOV-05, GOV-
 
 GOV-04 doit être exercé par un évaluateur habilité distinct de l'auteur des travaux évalués et du responsable du POC. Tant qu'aucun reviewer n'est désigné, aucun avis indépendant de sécurité n'est acquis et une approbation qui en dépend ne peut pas être déclarée complète. GOV-09 ne confère pas un rôle de DPO ni une autorisation de traiter des données réelles; tout changement de périmètre impose une nouvelle décision et une personne compétente à désigner.
 
-Les essais déjà exécutés sont un sous-ensemble technique sur données fictives: comparaison RLS R-0/R-1, tests Django/DRF et smoke tests. Ils sont consignés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15) et ses runs CI réussis, notamment sur le SHA `cd9e285`. Cela ne constitue ni une nomination GOV-06/GOV-07, ni une revue de sécurité GOV-04, ni une validation exhaustive des scénarios candidats.
+Les essais déjà exécutés sont un sous-ensemble technique sur données fictives: comparaison RLS R-0/R-1, tests Django/DRF et smoke tests. Ils sont consignés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15) et ses runs CI réussis, notamment sur le SHA `1095b7e`. Cela ne constitue ni une nomination GOV-06/GOV-07, ni une revue de sécurité GOV-04, ni une validation exhaustive des scénarios candidats.
 
 ## 3. Matrice proposée des décideurs et reviewers
 

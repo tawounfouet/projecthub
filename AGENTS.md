@@ -1,7 +1,7 @@
 # AGENTS.md - ProjectHub
 
 ## Repo shape
-- Discovery remains draft. P0 documentation CI merged via PR #14; the P1 branch/PR #15 adds a **synthetic-only experimental E0 Django/DRF + Next.js + PostgreSQL bootstrap**, not a production product or approved ADR. E1 remains `No-Go`.
+- Discovery remains draft. P0 documentation CI merged via PR #14; PR #15 has integrated a **synthetic-only experimental E0 Django/DRF + Next.js + PostgreSQL bootstrap** into `main`, not a production product or approved ADR. E1 remains `No-Go`.
 - The full 13-domain modular monolith remains a target. `backend/foundation/` is only the limited E0 tenancy/auth foundation, and its Project/WorkItem entities are test sentinels, not `SLICE-01` delivery.
 - `docs/README.md` is the public doc index. `docs/00-context/` through `docs/06-validation/` hold the 25 sanitized Discovery Baseline editions; later `docs/07-architecture/`, `docs/reports/`, and post-Discovery docs are additions outside that count.
 
