@@ -40,9 +40,13 @@ secrets/
 private/
 docs/private/
 data/private/
+resources/
 backups/
 *.bak
 *.sql.gz
+
+# Local session archives
+archives/
 
 # Editor / OS
 .DS_Store
