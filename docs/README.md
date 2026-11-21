@@ -81,15 +81,16 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 ## Plans complémentaires après Discovery Baseline V1.0
 
-La baseline Discovery historique reste composée de **25 documents**. Les documents ci-dessous sont des ajouts **postérieurs** pour préparer les validations produit et les arbitrages techniques ; ils ne constituent pas des preuves d'implémentation.
+La baseline Discovery historique reste composée de **25 documents**. Les documents ci-dessous sont des ajouts **postérieurs** pour préparer les validations produit et les arbitrages techniques. Un POC et des tests E0 synthétiques ont été exécutés dans la PR #15 ouverte; ils constituent des preuves d'essais techniques, pas des approbations d'ADR ni un GO E0.
 
 | Document | Objet | Statut |
 |---|---|---|
 | [Plan de recherche utilisateurs](02-discovery/05-priority-questions-and-user-research-plan.md) | `PH-OPEN-007`, `PH-OPEN-001`, `PH-OPEN-024`, rôles à désigner et entretiens | Draft public |
 | [Plan ADR, tenancy et permissions avant E0](07-architecture/00-adr-tenancy-permissions-pre-e0-plan.md) | `ADR-0004`, `ADR-0005`, `ADR-0019`, tests fictifs A/B | Draft public |
 | [Architecture & Engineering Baseline V1.0 exhaustive](07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | Document source **intégral**, non expurgé, publication acceptée par `PH-DEC-019` | **Classification publique ; statut `DRAFT / PROPOSED - NOT APPROVED` inchangé** |
-| [Plan de CI documentaire](07-architecture/01-documentation-quality-ci-plan.md) | Liens Markdown, frontmatter, continuité des IDs et workflow GitHub Actions | **Draft public - CI validée sur la PR #14, publication sur main en attente** |
-| [Registre des autorités d'architecture pré-E0](07-architecture/02-architecture-authority-register.md) | Cumul opérationnel proposé, actes de nomination à formaliser, revue indépendante GOV-04 `PENDING` et données synthétiques E0 | **Draft public - aucune nomination approuvée; issue #13 ouverte** |
+| [Plan de CI documentaire](07-architecture/01-documentation-quality-ci-plan.md) | Liens Markdown, frontmatter, continuité des IDs et workflow GitHub Actions | **Draft public - CI fusionnée sur `main` via la PR #14; run post-fusion réussi** |
+| [Registre des autorités d'architecture pré-E0](07-architecture/02-architecture-authority-register.md) | Cumul opérationnel proposé, actes de nomination à formaliser, revue indépendante GOV-04 `PENDING` et données synthétiques E0 | **Draft public - toutes les nominations `PENDING`; issue #13 ouverte** |
+| [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Comparaison RLS, tests Django/DRF et smoke tests exécutés dans une PR encore ouverte | **Runs E0 et documentation réussis sur `cd9e285`; revue humaine, ADR et GO E0 en attente** |
 | [Audit documentaire 2026-11-21](reports/audit-2026-11-21/INDEX.md) | Faits, verdict, recommandations, système documentaire et navigation produits par l'audit du dépôt | **Livrables d'audit - état observé au 2026-11-21** |
 
 Lire l'[index Architecture](07-architecture/README.md) et la [politique de publication](PUBLICATION-POLICY.md). Les décisions ADR, la validation métier et les gates E1 restent en attente.

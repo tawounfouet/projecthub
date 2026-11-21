@@ -23,4 +23,6 @@ La CI `.github/workflows/docs-quality.yml` exécute les deux dernières commande
 
 **Preuve du premier run de PR :** [GitHub Actions #44859773975](https://github.com/tawounfouet/projecthub/actions/runs/44859773975), commit `4ec0b4c`, 14 tests synthétiques réussis et `Documentation Quality: 0 anomalie(s)`. Ce résultat ne préjuge pas du prochain commit ni de la fusion.
 
+La PR #14 a depuis été fusionnée sur `main`; le [run post-fusion #44860486972](https://github.com/tawounfouet/projecthub/actions/runs/44860486972) a réussi sur `547c684`. Le contrôle documentaire de la [PR #15](https://github.com/tawounfouet/projecthub/pull/15) a également réussi sur son SHA `cd9e285` ([run #44862485329](https://github.com/tawounfouet/projecthub/actions/runs/44862485329)). Chaque résultat ne vaut que pour le SHA testé et ne remplace ni la revue humaine ni l'approbation des ADR.
+
 Les messages d'erreur n'affichent ni extraits de documents ni contenu d'archive privée. La CI ne remplace pas la revue manuelle de confidentialité, les approbations produit ni la décision de fusion. Les modifications des listes d'exceptions requièrent une revue explicite et un motif documenté.

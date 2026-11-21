@@ -10,9 +10,9 @@ Ce document est une carte de navigation du cycle de vie ProjectHub. Il distingue
 | Audit documentaire B1..B9 | Correctifs intégrés via [PR #12](https://github.com/tawounfouet/projecthub/pull/12), fusionnée le 21 novembre 2026 | Ne pas rouvrir des constats historiques sans preuve nouvelle |
 | Architecture exhaustive `PH-AEB-001` | Publiée sous `PH-DEC-019` avec classification `public` | `DRAFT / PROPOSED - NOT APPROVED` ; aucun ADR accepté automatiquement |
 | Agents OpenCode | Définitions versionnées dans `.agents/` et adaptateurs `.opencode/` | Tests d'intégration à réaliser avant revendication d'exécution |
-| CI de qualité documentaire | Absente du commit `main` de référence `f20ab25` | Nouveau workflow et tests soumis dans la [PR #14](https://github.com/tawounfouet/projecthub/pull/14) ; [premier run réussi](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) sur le SHA `4ec0b4c` |
+| CI de qualité documentaire | Workflow et validateur fusionnés sur `main` via la [PR #14](https://github.com/tawounfouet/projecthub/pull/14) | [Run post-fusion réussi](https://github.com/tawounfouet/projecthub/actions/runs/44860486972) au SHA `547c684` |
 | Décision d'architecture pré-E0 | Autorités à nommer ; `ADR-0004/0005/0019` proposés | [Issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13) et [registre de mandat](docs/07-architecture/02-architecture-authority-register.md) |
-| Application E0 | Aucun backend/frontend/DB migrée démontrés | Bootstrap après décisions structurantes |
+| Expérimentation E0 synthétique | [PR #15](https://github.com/tawounfouet/projecthub/pull/15) ouverte; POC PostgreSQL RLS, essais synthétiques, CI réussie | [Run E0](https://github.com/tawounfouet/projecthub/actions/runs/44862485190) et [run documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44862485329) au SHA `cd9e285`; aucune décision ADR ni GO E0 |
 | Pilote E1 | `NO-GO` | Autorisations et huit gates à démontrer séparément |
 
 **Référence Git :** [commit de `main` après PR #12](https://github.com/tawounfouet/projecthub/commit/f20ab25f27c4f7e5d91def4319e9cf66bbdccdde). Ce SHA est un **repère historique**, pas l'affirmation que `main` ne changera plus.
@@ -29,18 +29,18 @@ Audit P0      Correction P0      Fixtures CI        PR + approbation   Fusion d�
                    Docs, CI, ADR                         Aucun service E0
 ```
 
-La PR #12 est déjà **fusionnée**. Le travail P0 du présent cycle constitue **une autre contribution**, qui suit son propre enchaînement de vérification et de validation. Le mot `DEPLOY` signifie ici uniquement intégration documentaire : aucun serveur, conteneur ou SaaS n'est déployé.
+Les PR #12 et #14 sont **fusionnées**. La PR #15 reste en revue et ses essais synthétiques ne constituent pas une autorisation E0. Le mot `DEPLOY` signifie ici intégration documentaire ou démarrage local d'une stack de démonstration : aucun service de production n'est déployé.
 
 ## 3. Remédiation post-PR #12
 
 | Action | Livrable | État dans le lot en cours | Critère de clôture |
 |---|---|---|---|
-| `ACT-01` : cohérence des statuts | Ce SDLC, plan ADR, index | Proposé en branche P0 | Revue et fusion, aucune contradiction connue |
-| `ACT-02` : CI documentaire | `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, tests synthétiques | Validé par le premier run GitHub en PR #14 ; fusion et revue encore en attente | Run lié au SHA, tests valides/invalides passants |
+| `ACT-01` : cohérence des statuts | Ce SDLC, plan ADR, index | Intégré sur `main` via PR #14 | Synchroniser les statuts avec les preuves nouvelles |
+| `ACT-02` : CI documentaire | `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, tests synthétiques | Fusionnée via PR #14; run post-fusion réussi sur `main` | Vérifier les checks sur le SHA de chaque PR |
 | `ACT-03` : autorités d'architecture | Registre versionné et [issue #13](https://github.com/tawounfouet/projecthub/issues/13) | Coordination ouverte, nominations `PENDING` | Mandats, titulaires, délégations et décision signés |
-| `ACT-04` et `ACT-05` | Arbitrages et POC tenant/RBAC/RLS | `BLOCKED` avant nominations et preuves | ADR approuvés et tests réels sur données fictives |
+| `ACT-04` et `ACT-05` | Arbitrages et POC tenant/RBAC/RLS | `BLOCKED` en attente des mandats et décisions; preuves POC synthétiques partielles dans PR #15 | ADR approuvés, revue indépendante et critères restants traités |
 
-`ACT-01` et `ACT-02` ne doivent pas être marqués `DONE_VERIFIED` avant les validations et la vérification de `main`. Un résultat CI vert ne signe pas une décision d'architecture.
+`ACT-01` et `ACT-02` sont intégrés sur `main` après PR #14. Le POC RLS et des tests synthétiques exécutés dans PR #15 n'approuvent pas `ADR-0004/0005/0019`, ne remplacent pas GOV-04 et ne signent pas un GO E0.
 
 ## 4. Commandes de vérification
 

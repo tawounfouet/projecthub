@@ -1,14 +1,14 @@
 ---
 id: PH-ENG-DOC-CI-001
 title: "ProjectHub - Plan de qualité documentaire et CI GitHub Actions V1.0"
-version: "0.1.0"
+version: "0.2.0"
 status: draft
 classification: public
 created_at: "2026-11-21"
 updated_at: "2026-11-21"
 owner: "ProjectHub Engineering / Documentation - responsable à désigner"
-implementation_status: IMPLEMENTED_IN_P0_BRANCH
-validation_status: PR14_CI_PASS_AWAITING_MERGE
+implementation_status: IMPLEMENTED_ON_MAIN
+validation_status: MAIN_CI_PASS
 related_documents:
   - "docs/PUBLICATION-POLICY.md"
   - "docs/COLLABORATION-BEST-PRACTICES.md"
@@ -21,11 +21,11 @@ related_documents:
 
 # ProjectHub - Qualité documentaire automatisée avec GitHub Actions
 
-> **Spécification publique candidate avec implémentation proposée dans le lot P0.** Au commit de référence de `main` après la PR #12 (`f20ab25`), aucune CI documentaire n'était présente. Le nouveau workflow, le validateur et les fixtures sont désormais proposés sur une branche dédiée : [PR #14](https://github.com/tawounfouet/projecthub/pull/14). **Le premier [run GitHub Actions #44859773975](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) a réussi** sur le commit `4ec0b4c` (14 tests de fixtures, validation du dépôt : 0 anomalie). Ils ne sont pas déclarés opérationnels sur `main` avant fusion. Le succès de GitGuardian ne prouve pas la validité des liens ni des identifiants.
+> **Spécification publique candidate avec CI documentaire opérationnelle sur `main`.** Au commit de référence de `main` après la PR #12 (`f20ab25`), aucune CI documentaire n'était présente. La [PR #14](https://github.com/tawounfouet/projecthub/pull/14) a fusionné le workflow, le validateur et les fixtures. Le [premier run de PR #14](https://github.com/tawounfouet/projecthub/actions/runs/44859773975) a réussi sur `4ec0b4c` (14 tests de fixtures, validation du dépôt : 0 anomalie); un [run après fusion](https://github.com/tawounfouet/projecthub/actions/runs/44860486972) a également réussi sur `main` au SHA `547c684`. Le run documentaire de la [PR #15](https://github.com/tawounfouet/projecthub/pull/15) a réussi sur `cd9e285` ([run #44862485329](https://github.com/tawounfouet/projecthub/actions/runs/44862485329)). Le succès de GitGuardian ne prouve pas la validité des liens ni des identifiants.
 
 **Finalité :** passer d'une revue documentaire manuelle et ponctuelle à des contrôles reproductibles à chaque PR, tout en maintenant une revue humaine de confidentialité, d'exactitude et de décision métier.
 
-**État de livraison :** ce plan est déjà publié ; l'implémentation P0 propose `.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, `tests/test_docs_quality.py`, `docs/quality/requirements.txt` et `docs/quality/README.md`. Le résultat GitHub Actions a été vérifié sur le SHA `4ec0b4c` lors du premier run de la PR #14 ; tout nouveau commit nécessite un nouveau contrôle.
+**État de livraison :** ce plan et l'implémentation P0 (`.github/workflows/docs-quality.yml`, `scripts/docs_quality.py`, `tests/test_docs_quality.py`, `docs/quality/requirements.txt` et `docs/quality/README.md`) sont intégrés dans `main` via la PR #14. Les runs réussis attestent uniquement le SHA qu'ils vérifient; chaque nouveau commit nécessite ses propres contrôles.
 
 **Périmètre :** `README.md`, les documents de `docs/`, les illustrations liées, les index, les métadonnées YAML, les registres d'identifiants, puis les liens externes lors d'une phase ultérieure. Ce lot **n'implémente pas** Django, Next.js, ni le MVP E0.
 

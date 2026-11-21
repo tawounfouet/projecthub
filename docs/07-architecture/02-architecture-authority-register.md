@@ -1,7 +1,7 @@
 ---
 id: PH-ARCH-GOV-001
 title: "ProjectHub - Registre des autorités et mandats des décisions d'architecture pré-E0"
-version: "0.2.0"
+version: "0.3.0"
 status: draft
 classification: public
 created_at: "2026-11-21"
@@ -15,13 +15,13 @@ related_open_questions: [PH-OPEN-002, PH-OPEN-006, PH-OPEN-016, PH-OPEN-020]
 
 # ProjectHub - Registre des autorités d'architecture avant E0
 
-> **Statut : DRAFT / PROPOSITION DE GOUVERNANCE, AUCUNE NOMINATION APPROUVÉE.** Le commentaire du mainteneur sur l'[issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13#issuecomment-7056931493) autorise la préparation d'un modèle simplifié, pas la nomination d'une personne ni l'approbation d'un ADR. Les identités GitHub, l'assignation d'une issue, une review de PR et une fusion documentaire ne constituent pas un mandat. Les ADR restent `PROPOSED`; aucun POC n'est attesté, E0 n'est pas `GO` et E1 reste `NO-GO`.
+> **Statut : DRAFT / PROPOSITION DE GOUVERNANCE, AUCUNE NOMINATION APPROUVÉE.** Le commentaire du mainteneur sur l'[issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13#issuecomment-7056931493) autorise la préparation d'un modèle simplifié, pas la nomination d'une personne ni l'approbation d'un ADR. Les identités GitHub, l'assignation d'une issue, une review de PR et une fusion documentaire ne constituent pas un mandat. Un POC PostgreSQL RLS et un sous-ensemble de tests E0 synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15), avec les workflows [E0](https://github.com/tawounfouet/projecthub/actions/runs/44862485190) et [qualité documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44862485329) réussis sur `cd9e285`. La PR reste ouverte en attente de revue; ces preuves n'approuvent aucun ADR et n'accordent pas de GO E0. E1 reste `NO-GO`.
 
 ## 1. Objet, portée et état
 
 Ce registre propose une gouvernance opérationnelle adaptée à un projet actuellement porté par une seule personne. Le cumul de plusieurs fonctions opérationnelles est possible **après délégation explicite**, mais la présente proposition ne désigne aucun titulaire et ne présume ni l'autorité de nomination ni l'étendue de ses pouvoirs.
 
-La portée envisagée est limitée à la préparation des décisions `ADR-0004`, `ADR-0005` et `ADR-0019` et à une éventuelle étude E0 sur des données exclusivement synthétiques. Aucune donnée réelle n'est autorisée par ce registre. Toute évolution vers des données réelles ou E1 exige une décision distincte, des autorités institutionnelles compétentes et les gates applicables.
+La portée envisagée est limitée à la préparation des décisions `ADR-0004`, `ADR-0005` et `ADR-0019` et aux expérimentations E0 sur des données exclusivement synthétiques. Un POC et des tests synthétiques ont déjà été exécutés dans la PR #15; cela ne vaut ni approbation des résultats par une autorité, ni autorisation de démarrer officiellement E0. Aucune donnée réelle n'est autorisée par ce registre. Toute évolution vers des données réelles ou E1 exige une décision distincte, des autorités institutionnelles compétentes et les gates applicables.
 
 - **Accord de principe consigné :** le 21 novembre 2026, sur l'issue #13; il autorise la préparation du modèle uniquement.
 - **Autorité de nomination et de délégation :** à identifier et à consigner dans un acte formel.
@@ -39,14 +39,16 @@ La portée envisagée est limitée à la préparation des décisions `ADR-0004`,
 | GOV-03 | Domain / Product Authority | Sémantique métier et mandat produit de `ADR-0005` dans le périmètre explicitement délégué | Bloc opérationnel candidat; décision distincte de GOV-02 | À désigner par acte / `PENDING` |
 | GOV-04 | Security Reviewer | Examiner menaces, risques inter-tenant, cas de refus, révocation, contournements et risques résiduels | **Revue indépendante**; ne fait pas partie du bloc opérationnel candidat | Évaluateur habilité à désigner / `PENDING` |
 | GOV-05 | Data Model Owner | Cohérence du modèle Organization / Workspace / Project / WorkItem et de leurs relations | Bloc opérationnel candidat | À désigner par acte / `PENDING` |
-| GOV-06 | Backend POC Lead | Concevoir et exécuter un éventuel POC isolé, avec données exclusivement synthétiques | Bloc opérationnel candidat | À désigner par acte / `PENDING` |
-| GOV-07 | QA / Evidence Owner | Définir les critères avant exécution; tracer scénario, résultat, environnement, date et SHA | Bloc opérationnel candidat; une auto-vérification ne vaut pas revue indépendante | À désigner par acte / `PENDING` |
+| GOV-06 | Backend POC Lead | Encadrer les POC isolés, dont le POC déjà exécuté dans la PR #15, et leurs suites éventuelles sur données exclusivement synthétiques | Bloc opérationnel candidat | À désigner par acte / `PENDING` |
+| GOV-07 | QA / Evidence Owner | Définir les critères avant exécution; tracer scénario, résultat, environnement, date et SHA, y compris les résultats de la PR #15 | Bloc opérationnel candidat; une auto-vérification ne vaut pas revue indépendante | À désigner par acte / `PENDING` |
 | GOV-08 | Delivery / CI Maintainer | Maintenir les contrôles de PR et vérifier leur reproductibilité sur le SHA concerné | Bloc opérationnel candidat; ne peut pas déclarer ses propres checks comme approbation métier | À désigner par acte / `PENDING` |
 | GOV-09 | Data Protection Contact | Pour E0 seulement, vérifier que les fixtures, exemples et preuves restent synthétiques et excluent les données réelles | Périmètre initial limité aux données synthétiques E0; aucun mandat juridique général n'est présumé | Applicabilité et titulaire à confirmer par acte / `PENDING` |
 
 Le **bloc opérationnel candidat** comprend GOV-01, GOV-02, GOV-03, GOV-05, GOV-06, GOV-07 et GOV-08. Un même titulaire peut recevoir plusieurs de ces délégations, mais chaque responsabilité, décision, conflit d'intérêts et mesure de séparation doit être explicite dans l'acte. Pour `ADR-0005`, l'avis technique GOV-02 et la décision de sémantique GOV-03 sont deux actes distincts, même en cas de cumul.
 
 GOV-04 doit être exercé par un évaluateur habilité distinct de l'auteur des travaux évalués et du responsable du POC. Tant qu'aucun reviewer n'est désigné, aucun avis indépendant de sécurité n'est acquis et une approbation qui en dépend ne peut pas être déclarée complète. GOV-09 ne confère pas un rôle de DPO ni une autorisation de traiter des données réelles; tout changement de périmètre impose une nouvelle décision et une personne compétente à désigner.
+
+Les essais déjà exécutés sont un sous-ensemble technique sur données fictives: comparaison RLS R-0/R-1, tests Django/DRF et smoke tests. Ils sont consignés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15) et ses runs CI réussis, notamment sur le SHA `cd9e285`. Cela ne constitue ni une nomination GOV-06/GOV-07, ni une revue de sécurité GOV-04, ni une validation exhaustive des scénarios candidats.
 
 ## 3. Matrice proposée des décideurs et reviewers
 
@@ -114,13 +116,14 @@ Pour qu'une fonction soit marquée comme attribuée, l'autorité de nomination, 
 5. Confirmer l'applicabilité et désigner GOV-09 pour le seul périmètre initial des données synthétiques E0; toute extension vers des données réelles exige un nouveau mandat.
 6. Formaliser les décideurs et approbations distinctes des ADR-0004, ADR-0005 et ADR-0019 selon la matrice de la §3.
 7. Après attribution, recueillir les décisions ADR et leurs preuves; elles ne sont pas incluses dans cette proposition.
-8. Définir puis exécuter les contrôles QA/POC sur données synthétiques seulement. Aucun test ou résultat n'est attesté ici.
+8. Faire compléter, revoir indépendamment et accepter formellement les preuves QA/POC déjà exécutées dans la PR #15; définir et exécuter les scénarios restants sur données synthétiques seulement. Les résultats techniques de la PR ne valent ni approbation d'architecture ni GO E0.
 
 Jusqu'à ces validations, les nominations et l'instauration du protocole sont `PENDING`, les `PH-OPEN-002/006/016` restent `OPEN`, `ACT-04` et `ACT-05` restent `BLOCKED`, les ADR restent `PROPOSED`, E0 n'est pas `GO` et E1 reste `NO-GO`. L'issue #13 demeure ouverte jusqu'à vérification humaine de ses critères de clôture.
 
 ## 7. Références
 
 - [Issue ACT-03 #13 et accord de principe](https://github.com/tawounfouet/projecthub/issues/13)
+- [POC et tests synthétiques E0 dans la PR #15](https://github.com/tawounfouet/projecthub/pull/15)
 - [Plan public ADR avant E0](00-adr-tenancy-permissions-pre-e0-plan.md)
 - [Baseline technique exhaustive publique, non approuvée](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md)
 - [Questions canoniques encore ouvertes](../00-context/04-open-questions.md)
