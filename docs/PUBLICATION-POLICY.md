@@ -155,7 +155,7 @@ Titre suggéré pour la PR : `docs: publish sanitized Discovery context and prod
 - [ ] Diff de la PR vérifié dans son intégralité, y compris les suppressions et les fichiers binaires.
 - [ ] Validation humaine obtenue et consignée avant fusion.
 
-Des outils comme `markdownlint`, `gitleaks` et un vérificateur de liens peuvent renforcer les contrôles, mais **aucun pipeline n'est présumé configuré actuellement**. Le succès d'un scanner ne remplace pas la revue humaine.
+Les contrôles techniques disponibles dépendent du commit vérifié : le lot P0 propose [une CI documentaire](quality/README.md) couvrant frontmatter, IDs et liens locaux, avec des tests positifs et négatifs. Vérifier le workflow et le run sur le SHA exact de la PR ou de `main` ; ne jamais déduire d'un check vert une autorisation de publication ou l'absence totale d'information confidentielle. Le succès d'un scanner ne remplace pas la revue humaine.
 
 ## 8. Métadonnées minimales des éditions publiques
 
