@@ -12,6 +12,8 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 **Exécution du lot P0 post-PR #12 :** voir le [bilan des correctifs, du run CI et des nominations en attente](reports/2026-11-21-p0-remediation-execution.md).
 
+**Actes ACT-03 prêts pour relecture :** [protocole interne proposé](07-architecture/06-act03-protocol-public-draft.md) et [nomination cumulée proposée](07-architecture/07-act03-appointment-public-draft.md). Il s'agit de versions publiques non signées, sans identité personnelle ni preuve d'approbation ; l'issue #13 reste ouverte.
+
 **Dossiers de décision à signer :** [ACT-03 / issue #13](07-architecture/04-act03-formal-appointment-dossier.md) et [ADR-0004/0005/0019 / issue #16](07-architecture/05-e0-adrs-formal-decision-packet.md). Tous les champs d'approbation restent `PENDING`.
 
 **Expérimentation P1 uniquement synthétique :** consulter le [runbook E0](../E0.md), le [rapport d'exécution](reports/2026-11-21-p1-e0-rls-execution.md), le [rapport GitGuardian](reports/2026-11-21-p1-secret-remediation.md) et le [dossier ADR-0019](07-architecture/03-adr-0019-rls-poc-decision.md). Les tests réussis dans la PR #15 ne constituent ni approbation des ADR ni GO E0.
