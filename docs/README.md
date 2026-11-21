@@ -77,6 +77,18 @@ La [politique de publication documentaire](PUBLICATION-POLICY.md) définit le ci
 
 **PUBLIC-04 est fusionné sur main.** Les cinq éditions publiques de ce lot restent des propositions expurgées. Les 25 documents de Discovery sont **publiés**, mais **ni le périmètre MVP ni la baseline ne sont officiellement approuvés**. Aucune expérience E0 ou gate E1 n'est présentée comme réussie.
 
+## Plans complémentaires après Discovery Baseline V1.0
+
+La baseline Discovery historique reste composée de **25 documents**. Les documents ci-dessous sont des ajouts **postérieurs** pour préparer les validations produit et les arbitrages techniques ; ils ne constituent pas des preuves d'implémentation.
+
+| Document | Objet | Statut |
+|---|---|---|
+| [Plan de recherche utilisateurs](02-discovery/05-priority-questions-and-user-research-plan.md) | `PH-OPEN-007`, `PH-OPEN-001`, `PH-OPEN-024`, rôles à désigner et entretiens | Draft public |
+| [Plan ADR, tenancy et permissions avant E0](07-architecture/00-adr-tenancy-permissions-pre-e0-plan.md) | `ADR-0004`, `ADR-0005`, `ADR-0019`, tests fictifs A/B | Draft public |
+| [Architecture & Engineering Baseline V1.0 exhaustive](07-architecture/ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | Document source **intégral**, non expurgé, à examiner spécialement | **Classification INTERNAL conservée ; publication à autoriser explicitement** |
+
+Lire l'[index Architecture](07-architecture/README.md) et la [politique de publication](PUBLICATION-POLICY.md). Les décisions ADR, la validation métier et les gates E1 restent en attente.
+
 ## Chaîne de traçabilité envisagée
 
 ```text
