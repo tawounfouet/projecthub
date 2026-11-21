@@ -43,9 +43,11 @@ La phase d'étude peut utiliser un **POC isolé** pour éclairer les décisions 
 | [MVP](../05-mvp/00-mvp-definition.md) | `SLICE-00`, deux Organizations fictives, E0 vs E1 |
 | [Revue Discovery](../06-validation/01-discovery-baseline-review.md) | Réserves et gates E1 encore ouvertes |
 
-**L'édition interne exhaustive**, fondée sur `PH-AEB-001`, possède des analyses et matrices de tests plus détaillées. Elle reste hors de ce dépôt public.
+**L'[édition exhaustive de la baseline](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md)**, identifiée `PH-AEB-001`, est désormais **publiée intégralement**, sous `classification: public` depuis la décision de publication [`PH-DEC-019`](../00-context/03-decisions-register.md). Cette décision ne valide ni l'architecture, ni les ADR ; son statut reste `DRAFT / PROPOSED - NOT APPROVED`.
 
 ## 3. Gouvernance à instituer
+
+Le [registre des autorités et mandats pré-E0](02-architecture-authority-register.md) établit les fonctions, les approbations distinctes et la procédure de nomination. Les titulaires restent `UNASSIGNED` jusqu'à une décision formelle ; voir l'[issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13).
 
 | Décision | Responsable de la préparation | Autorité d'approbation | Situation |
 |---|---|---|---|
