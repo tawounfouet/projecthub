@@ -1,7 +1,7 @@
 ---
 id: PH-REP-P1-SEC-001
 title: "ProjectHub - Classification et remédiation des détections de secrets P1"
-version: "0.1.0"
+version: "0.2.0"
 status: draft
 classification: public
 created_at: "2026-11-21"
@@ -71,3 +71,9 @@ La seconde exécution du check GitGuardian sur le commit condensé a signalé tr
 | `40808917` sur `scripts/e0_smoke.py:50` | Le mot de passe fictif était littéral dans la requête de connexion. | Le smoke lit `E0_DEMO_PASSWORD` et reconstruit sinon la valeur publique depuis des fragments, sans littéral adjacent au champ `password`. |
 
 Le seed Django utilise la même variable `E0_DEMO_PASSWORD` avec la même valeur publique par défaut, afin que les tests et le smoke restent cohérents. `E0.md`, `frontend/README.md` et `frontend/app/page.tsx` décrivent désormais la valeur sans la coder en dur. Aucune rotation externe n'est requise. Le dashboard GitGuardian doit être relancé ; si les incidents historiques restent ouverts malgré la correction de la pointe de branche, leur résolution ou leur ignore reste une décision mainteneur.
+
+## 7. État après nettoyage de l'historique et fusion
+
+Après réécriture de l'historique P1 par le porteur, le [contrôle GitGuardian](https://github.com/tawounfouet/projecthub/pull/15/checks) du dernier état de PR a terminé `success - No secrets detected`. La PR #15 a ensuite été fusionnée sur `main` au SHA `1095b7eb1638363cf3e39188b20cb297dbe5dba8`. Les [tests E0](https://github.com/tawounfouet/projecthub/actions/runs/44870333128) et la [CI documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44870333226) post-fusion sont `success`.
+
+Ce résultat ne garantit ni l'effacement absolu des anciens objets Git, ni l'absence de tout secret possible. Les valeurs signalées provenaient de données de tests fictives ou de syntaxe de configuration. Tout secret réel découvert ultérieurement devrait être révoqué ou renouvelé. Les mandats GOV-01..09 et l'avis indépendant GOV-04 restent `PENDING`, l'ADR-0019 reste `PROPOSED`, E1 reste `NO-GO`.
