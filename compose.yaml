@@ -37,12 +37,13 @@ services:
       E0_SYNTHETIC_ONLY: "1"
       DJANGO_ALLOWED_HOSTS: "localhost,127.0.0.1,backend"
       DJANGO_CSRF_TRUSTED_ORIGINS: "http://localhost:3000"
-    command: ["sh", "-c", "python manage.py seed_e0 && python manage.py runserver 0.0.0.0:8000"]
+    # Gunicorn WSGI rather than Django's development/autoreload server behind Next.
+    command: ["sh", "-c", "python manage.py seed_e0 && exec gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 2 --worker-class gthread --threads 4 --timeout 30 --access-logfile - --error-logfile -"]
     depends_on:
       migrate:
         condition: service_completed_successfully
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health/', timeout=3)"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/ready/', timeout=3)"]
       interval: 4s
       retries: 20
 
@@ -56,6 +57,11 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+    healthcheck:
+      # Verify proxy-to-DB readiness, not merely that next start is running.
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/ready/', { signal: AbortSignal.timeout(3000) }).then(r => process.exit(r.status === 200 ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 4s
+      retries: 20
 
 volumes:
   db_data:

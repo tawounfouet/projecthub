@@ -4,6 +4,7 @@ from foundation import api
 
 API_ROUTES = [
     ("api/health/", api.health),
+    ("api/ready/", api.ready),
     ("api/auth/csrf/", api.csrf),
     ("api/auth/login/", api.sign_in),
     ("api/auth/logout/", api.sign_out),
