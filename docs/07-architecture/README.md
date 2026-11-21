@@ -7,14 +7,14 @@ Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de 
 | Document | Destination et statut |
 |---|---|
 | [00-adr-tenancy-permissions-pre-e0-plan.md](00-adr-tenancy-permissions-pre-e0-plan.md) | **Édition publique expurgée**, `draft`, plan d'ADR, isolation et permissions |
-| [ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | **Source exhaustive conservée intégralement**, 1 815 lignes, encore marquée `INTERNAL` et `DRAFT / PROPOSED` |
+| [ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | **Édition exhaustive conservée intégralement**, 1 815 lignes, classée `public` depuis `PH-DEC-019`, toujours `DRAFT / PROPOSED - NOT APPROVED` |
 | [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow GitHub Actions **proposé / non implémenté** |
 
-## Avertissement de publication
+## Décision de publication
 
-**Exception explicite à examiner avant fusion :** le document exhaustif a été reproduit **sans modifier sa classification** `INTERNAL - exhaustive working edition`, conformément à la demande de dépôt intégral. Il ne s'agit donc pas d'une édition publique expurgée au sens de la [politique documentaire](../PUBLICATION-POLICY.md).
+**`PH-DEC-019` - 2026-11-21.** Le mainteneur a retenu l'option d'acceptation documentée : conserver l'édition exhaustive dans `docs/07-architecture/`, la classer `public` et maintenir son statut `DRAFT / PROPOSED - NOT APPROVED`. Le contenu reste une proposition d'architecture, pas une validation métier ni un ADR approuvé.
 
-La présence de ce document sur une branche d'un **dépôt public** le rend accessible même avant fusion. Le mainteneur doit relire **l'intégralité du document** et confirmer explicitement les droits de publication de cette exception. Les contrôles automatisés de noms, chemins et secrets ne constituent pas une garantie absolue de confidentialité.
+Cette décision ne remplace pas la relecture humaine prescrite par la [politique documentaire](../PUBLICATION-POLICY.md) pour toute évolution future du document.
 
 ## Étapes de validation technique
 
