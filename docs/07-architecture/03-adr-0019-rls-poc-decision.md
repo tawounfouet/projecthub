@@ -9,7 +9,7 @@ updated_at: "2026-11-21"
 related_adrs: [ADR-0004, ADR-0005, ADR-0019]
 decision_status: PROPOSED_AWAITING_AUTHORITY
 recommended_option: R-2
-proof_status: CI_VERIFIED_PR15
+proof_status: CI_VERIFIED_MAIN_SYNTHETIC
 approver: GOV-02_UNASSIGNED
 ---
 
@@ -41,7 +41,7 @@ Les fichiers [POC SQL](../../poc/rls/README.md) exécutent dans PostgreSQL 16 :
 6. Les contextes se réinitialisent après COMMIT et la bascule A vers B n'hérite pas de A.
 7. FORCE RLS est exercé contre le rôle propriétaire non superuser.
 
-Le fichier de tests SQL s'arrête sur toute assertion incorrecte. Le [run GitHub Actions #44862176849](https://github.com/tawounfouet/projecthub/actions/runs/44862176849) a retourné `RLS_POC_ASSERTIONS_PASSED` sur SHA `ae3aa6f321d032366ea50a3008ee2e5aa7609a62`. Les deux jobs E0/Compose sont `success`, avec 20 tests Django et deux smoke tests HTTP passés. Voir le [bilan d'exécution P1](../reports/2026-11-21-p1-e0-rls-execution.md). La présence de preuves CI ne transforme pas cette proposition en ADR approuvé.
+Le fichier de tests SQL s'arrête sur toute assertion incorrecte. Le [run GitHub Actions post-fusion #44870333128](https://github.com/tawounfouet/projecthub/actions/runs/44870333128) a réussi sur SHA `1095b7eb1638363cf3e39188b20cb297dbe5dba8`, en conservant les assertions RLS, les tests d'API et les smoke tests synthétiques. Les deux jobs E0/Compose sont `success`, avec 20 tests Django et deux smoke tests HTTP passés. Voir le [bilan d'exécution P1](../reports/2026-11-21-p1-e0-rls-execution.md). La présence de preuves CI ne transforme pas cette proposition en ADR approuvé.
 
 ## Proposition d'arbitrage technique
 

@@ -1,29 +1,29 @@
 ---
 id: PH-REP-P1-E0-001
 title: "ProjectHub - Bilan technique P1, POC PostgreSQL RLS et SLICE-00 synthétique"
-version: "0.1.0"
+version: "0.2.0"
 status: draft
 classification: public
 created_at: "2026-11-21"
 updated_at: "2026-11-21"
-implementation_status: VERIFIED_IN_PR_CI
-delivery_status: PR_OPEN_AWAITING_REVIEW
+implementation_status: VERIFIED_IN_MAIN_CI
+delivery_status: MERGED_SYNTHETIC_EXPERIMENT_ONLY
 architecture_decision_status: PROPOSED_AWAITING_AUTHORITY
 source_pr: "https://github.com/tawounfouet/projecthub/pull/15"
-proof_run: "https://github.com/tawounfouet/projecthub/actions/runs/44862176849"
-source_sha: "ae3aa6f321d032366ea50a3008ee2e5aa7609a62"
+proof_run: "https://github.com/tawounfouet/projecthub/actions/runs/44870333128"
+source_sha: "1095b7eb1638363cf3e39188b20cb297dbe5dba8"
 ---
 
 # ProjectHub - Rapport d'exécution P1 et preuves E0
 
-**Périmètre :** POC PostgreSQL RLS, bootstrap Django/DRF + Next.js + PostgreSQL, implémentation expérimentale de `SLICE-00`. **Données exclusivement fictives** ; aucun résultat de pilote réel ni validation métier n'est implicite. La PR publique reste soumise à revue et le GO/NO-GO E0 est distinct des tests.
+**Périmètre :** POC PostgreSQL RLS, bootstrap Django/DRF + Next.js + PostgreSQL, implémentation expérimentale de `SLICE-00`. **Données exclusivement fictives** ; aucun résultat de pilote réel ni validation métier n'est implicite. La PR #15 a été fusionnée sur `main` pour le code expérimental ; le GO/NO-GO E0 institutionnel demeure distinct des tests.
 
 ## 1. Références vérifiées
 
 - PR : [#15, lot P1](https://github.com/tawounfouet/projecthub/pull/15).
-- Run GitHub Actions sur PostgreSQL 16.15 : [#44862176849](https://github.com/tawounfouet/projecthub/actions/runs/44862176849), statut `success` au SHA `ae3aa6f321d032366ea50a3008ee2e5aa7609a62`.
+- Run GitHub Actions sur PostgreSQL 16.15 après fusion : [#44870333128](https://github.com/tawounfouet/projecthub/actions/runs/44870333128), statut `success` au SHA `1095b7eb1638363cf3e39188b20cb297dbe5dba8`.
 - Deux jobs de ce run : `E0 PostgreSQL / DRF / Next / RLS` et `E0 Docker Compose integration`, tous les deux `success`.
-- Run qualité documentaire sur la même révision : [#44862176842](https://github.com/tawounfouet/projecthub/actions/runs/44862176842), `success`.
+- Run qualité documentaire sur la même révision : [#44870333226](https://github.com/tawounfouet/projecthub/actions/runs/44870333226), `success`.
 - Une validation exécutée sur une révision antérieure ne certifie pas automatiquement les commits ultérieurs. Toujours consulter le dernier SHA et ses checks.
 
 ## 2. Résultats reproductibles
@@ -50,7 +50,7 @@ Le POC est **une comparaison fonctionnelle**, pas une étude de performance repr
 | Chantier | Sortie technique | Décision restante |
 |---|---|---|
 | **P1 RLS / ADR-0019** | R-0 et R-1 comparés sur une vraie instance PostgreSQL en CI, protocole SQL versionné | **R-2 recommandé, non accepté** : validation GOV-02 et avis GOV-04 via [issue #16](https://github.com/tawounfouet/projecthub/issues/16) |
-| **P1 bootstrap E0** | Backend Django/DRF, frontend Next.js, Postgres, Docker Compose, rôles SQL séparés, migrations et CI | Revue PR, approbation d'architecture et sécurité pour tout GO E0 formel |
+| **P1 bootstrap E0** | Backend Django/DRF, frontend Next.js, Postgres, Docker Compose, rôles SQL séparés, migrations et CI | PR fusionnée, mais approbation d'architecture et sécurité requises pour tout GO E0 formel |
 | **P1 SLICE-00** | Deux Organizations fictives, memberships/grants, sélection du contexte, invitation en attente, révocation, audit, approbation sans mandat refusée, export tenant | Validation métier et permission d'utiliser un éventuel environnement de démonstration, jamais de données E1 |
 
 Les modèles Project et WorkItem ne représentent que des **sentinelles techniques de périmètre** ; les Epics et capacités de `SLICE-01` ne sont pas déclarés livrés.
@@ -71,10 +71,10 @@ Voir le [runbook E0](../../E0.md) et le [README du POC RLS](../../poc/rls/README
 
 | Gate | État |
 |---|---|
-| Tests RLS de comparaison et refus | `VERIFIED_IN_PR_CI` sur SHA documenté |
-| Tests Django/DRF tenant/revocation et HTTP | `VERIFIED_IN_PR_CI` sur SHA documenté |
-| Bootstrap Docker Compose synthétique | `VERIFIED_IN_PR_CI` sur SHA documenté |
-| Revue humaine et fusion de la PR #15 | `PENDING` |
+| Tests RLS de comparaison et refus | `VERIFIED_IN_MAIN_CI` sur SHA documenté |
+| Tests Django/DRF tenant/revocation et HTTP | `VERIFIED_IN_MAIN_CI` sur SHA documenté |
+| Bootstrap Docker Compose synthétique | `VERIFIED_IN_MAIN_CI` sur SHA documenté |
+| Intégration technique des PR #17 et #15 sur `main` | `MERGED - SYNTHETIC_ONLY` ; ne vaut ni nomination GOV ni GO E0 |
 | Nominations GOV-01..09 applicables | `PENDING` - issue #13 |
 | Approbation ADR-0004 / ADR-0005 | `PROPOSED` |
 | Arbitrage officiel ADR-0019 | `PROPOSED` - issue #16 |
