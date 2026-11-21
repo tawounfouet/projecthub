@@ -11,6 +11,8 @@ Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de 
 | [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow et validateur intégrés dans `main` via la PR #14 |
 | [02-architecture-authority-register.md](02-architecture-authority-register.md) | **Registre des autorités pré-E0**, `draft`, cumul opérationnel proposé, actes à formaliser et revue indépendante GOV-04 `PENDING` |
 | [03-adr-0019-rls-poc-decision.md](03-adr-0019-rls-poc-decision.md) | **Comparatif POC PostgreSQL RLS**, R-2 recommandé mais `PROPOSED`, [issue #16](https://github.com/tawounfouet/projecthub/issues/16) |
+| [04-act03-formal-appointment-dossier.md](04-act03-formal-appointment-dossier.md) | Actes à approuver pour instituer le protocole, nommer les fonctions et désigner GOV-04, tous `PENDING` |
+| [05-e0-adrs-formal-decision-packet.md](05-e0-adrs-formal-decision-packet.md) | Fiches ADR-0004/0005/0019 et GO/NO-GO E0 en attente d'autorités habilitées |
 | [Bilan d'exécution P1](../reports/2026-11-21-p1-e0-rls-execution.md) | Tests PostgreSQL, Django, Next.js et Compose avec preuves CI |
 | [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Expérimentation sur deux Organizations fictives, sans GO officiel E0 |
 
