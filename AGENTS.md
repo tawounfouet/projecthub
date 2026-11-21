@@ -1,8 +1,8 @@
 # AGENTS.md - ProjectHub
 
 ## Repo shape
-- Documentation-only research repo in Discovery; no Django/Next.js application, backend manifests or E0 infrastructure. The documentation validator, tests, pinned dependencies and GitHub Actions workflow are introduced by the P0 remediation branch (PR #14). Do not claim product features, ADRs, E0 demos or E1 pilots are approved or implemented; E1 remains `No-Go`.
-- The Django/DRF + Next.js/React/TypeScript/PostgreSQL stack and 13-domain map in `README.md` and the architecture baseline are target proposals, not delivered code.
+- Discovery remains draft. P0 documentation CI merged via PR #14; the P1 branch/PR #15 adds a **synthetic-only experimental E0 Django/DRF + Next.js + PostgreSQL bootstrap**, not a production product or approved ADR. E1 remains `No-Go`.
+- The full 13-domain modular monolith remains a target. `backend/foundation/` is only the limited E0 tenancy/auth foundation, and its Project/WorkItem entities are test sentinels, not `SLICE-01` delivery.
 - `docs/README.md` is the public doc index. `docs/00-context/` through `docs/06-validation/` hold the 25 sanitized Discovery Baseline editions; later `docs/07-architecture/`, `docs/reports/`, and post-Discovery docs are additions outside that count.
 
 ## Confidentiality first
@@ -21,6 +21,12 @@
 - Work in a focused `docs/...` branch as a PR Draft, then mark Ready. A maintainer comment in Conversation is not a GitHub `APPROVED` review. PUBLIC-01 to PUBLIC-04 were squash merged; PRs #7 to #11 appear as two-parent merges in local history. Do not claim a universal rule; update the index after merge.
 - Preflight: `git diff --check`, `git status --short`, `python -m pip install -r docs/quality/requirements.txt`, `python -m unittest discover -s tests -p 'test_docs_quality.py' -v`, and `python scripts/docs_quality.py --strict` when the CI files exist in the checked-out ref. Check the matching GitHub Actions run and commit SHA; a passed check is not publication approval.
 - Public issues must exclude private pilot/customer data, transcripts, credentials, and security findings; report security issues privately, as stated in `.github/ISSUE_TEMPLATE/`.
+
+## Experimental E0 commands and gotchas
+- Start only locally on fake data with `cp .env.example .env` (replace placeholders), then `docker compose up --build`. Never expose the demo to public Internet or real organization data. `backend/config/settings.py` requires `DATABASE_URL`, `DJANGO_SECRET_KEY`, and `E0_SYNTHETIC_ONLY=1` for E0 endpoints.
+- Runtime SQL role `ph_app` must not own tables or bypass RLS; `ph_migrate` owns E0 tables. PostgreSQL composite FKs for tenant parentage are in `backend/foundation/migrations/0001_initial.py`. Migrate first, then seed; do not turn on RLS on Django tables without approved ADR-0019.
+- For focused checks: `cd backend && python manage.py makemigrations --check --dry-run && python manage.py test foundation --verbosity 2` (PostgreSQL required). `cd frontend && npm ci && npm run typecheck && npm run build`. `python scripts/e0_smoke.py` checks Next same-origin HTTP when both servers run. Real RLS POC commands are in `poc/rls/README.md`. CI is `.github/workflows/e0-foundation.yml`.
+- Never promote `ADR-0004/0005/0019` to ACCEPTED without formal GOV-02/GOV-03 approval. `docs/07-architecture/02-architecture-authority-register.md` remains UNASSIGNED, with issues #13 and #16 tracking decisions.
 
 ## Audit deliverables
 - The audit lives in `docs/reports/audit-2026-11-21/`. `CODEBASE_ANALYSIS.md` defines bugs B1..B9; keep those IDs stable in every other audit document.

@@ -1,0 +1,24 @@
+{
+  "name": "projecthub-e0",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Synthetic-only ProjectHub SLICE-00 demo",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.9.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.9.3"
+  }
+}

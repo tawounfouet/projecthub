@@ -1,0 +1,214 @@
+name: E0 Foundation and PostgreSQL RLS POC
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  e0-synthetic:
+    name: E0 PostgreSQL / DRF / Next / RLS
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: "5432"
+      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: projecthub
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      E0_SYNTHETIC_ONLY: "1"
+      DJANGO_DEBUG: "1"
+      DJANGO_ALLOWED_HOSTS: "127.0.0.1,localhost,testserver"
+      DJANGO_CSRF_TRUSTED_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000"
+      NEXT_TELEMETRY_DISABLED: "1"
+      BACKEND_INTERNAL_URL: "http://127.0.0.1:8000"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Set up Python 3.12
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Set up Node.js 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24"
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get install -y -qq postgresql-client
+      - name: Generate short-lived synthetic credentials
+        run: |
+          python - <<'PY'
+          import os
+          import secrets
+
+          values = {
+              "POSTGRES_ADMIN_PASSWORD": secrets.token_hex(32),
+              "E0_APP_DB_PASSWORD": secrets.token_hex(32),
+              "E0_MIGRATE_DB_PASSWORD": secrets.token_hex(32),
+              "DJANGO_SECRET_KEY": secrets.token_urlsafe(48),
+          }
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:
+              for name, value in values.items():
+                  print(f"::add-mask::{value}")
+                  env_file.write(f"{name}={value}\n")
+              env_file.write(f"POSTGRES_PASSWORD={values['POSTGRES_ADMIN_PASSWORD']}\n")
+              env_file.write(f"PGPASSWORD={values['POSTGRES_ADMIN_PASSWORD']}\n")
+          PY
+      - name: Start PostgreSQL with password authentication
+        run: |
+          docker run --detach --name projecthub-ci-postgres \
+            --publish 5432:5432 \
+            --env POSTGRES_DB --env POSTGRES_USER --env POSTGRES_PASSWORD \
+            --env POSTGRES_INITDB_ARGS \
+            postgres:16.15
+          for i in $(seq 1 30); do
+            if pg_isready -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$POSTGRES_DB"; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "PostgreSQL did not become ready"
+          docker logs --tail=40 projecthub-ci-postgres || true
+          exit 1
+      - name: Create separate migration and runtime SQL roles
+        run: sh infra/initdb/01-roles.sh
+      - name: Verify valid and invalid runtime-role passwords
+        run: |
+          PGPASSWORD="$E0_APP_DB_PASSWORD" psql -X -v ON_ERROR_STOP=1 \
+            -h "$PGHOST" -p "$PGPORT" -U ph_app -d "$POSTGRES_DB" \
+            -c "SELECT current_user"
+          if PGPASSWORD="wrong-${GITHUB_RUN_ID}" psql -X -q \
+            -h "$PGHOST" -p "$PGPORT" -U ph_app -d "$POSTGRES_DB" \
+            -c "SELECT 1" >/tmp/ph-invalid-password.log 2>&1; then
+            echo "PostgreSQL accepted an incorrect runtime-role password"
+            exit 1
+          fi
+          if ! grep -q "password authentication failed" /tmp/ph-invalid-password.log; then
+            echo "PostgreSQL rejected the connection for an unexpected reason"
+            exit 1
+          fi
+          echo "PostgreSQL rejected an incorrect runtime-role password"
+      - name: Verify app role has no bypass or superuser rights
+        run: |
+          psql -X -v ON_ERROR_STOP=1 -d projecthub <<'SQL'
+          DO $$
+          BEGIN
+            IF (SELECT rolsuper OR rolbypassrls OR rolcreatedb
+                FROM pg_roles WHERE rolname = 'ph_app') THEN
+              RAISE EXCEPTION 'E0 runtime role has forbidden privileges';
+            END IF;
+          END $$;
+          SQL
+      - name: Run RLS comparison and negative SQL assertions
+        run: |
+          psql -X -v ON_ERROR_STOP=1 -d projecthub -f poc/rls/01_setup.sql
+          psql -X -v ON_ERROR_STOP=1 -d projecthub -f poc/rls/02_assertions.sql
+      - name: Install pinned Django and DRF dependencies
+        run: python -m pip install -r backend/requirements.txt
+      - name: Validate models, migration state and migrate PostgreSQL
+        run: |
+          cd backend
+          export DATABASE_URL="postgresql://ph_migrate:${E0_MIGRATE_DB_PASSWORD}@${PGHOST}:${PGPORT}/${POSTGRES_DB}"
+          python manage.py check
+          python manage.py makemigrations --check --dry-run
+          python manage.py migrate --noinput
+      - name: Run negative and positive Django API integration tests
+        run: |
+          cd backend
+          export DATABASE_URL="postgresql://ph_migrate:${E0_MIGRATE_DB_PASSWORD}@${PGHOST}:${PGPORT}/${POSTGRES_DB}"
+          python manage.py test foundation --verbosity 2
+      - name: Seed E0 fixtures using non-owner runtime DB role
+        run: |
+          cd backend
+          export DATABASE_URL="postgresql://ph_app:${E0_APP_DB_PASSWORD}@${PGHOST}:${PGPORT}/${POSTGRES_DB}"
+          python manage.py seed_e0
+          python manage.py seed_e0
+      - name: Install frontend dependencies and typecheck
+        run: |
+          cd frontend
+          npm ci --no-audit --no-fund
+          npm run typecheck
+      - name: Build Next.js 16
+        run: |
+          cd frontend
+          npm run build
+      - name: HTTP smoke through Next same-origin reverse proxy
+        run: |
+          (cd backend && DATABASE_URL="postgresql://ph_app:${E0_APP_DB_PASSWORD}@${PGHOST}:${PGPORT}/${POSTGRES_DB}" python manage.py runserver 127.0.0.1:8000 > /tmp/ph-backend.log 2>&1) &
+          (cd frontend && npm run start > /tmp/ph-next.log 2>&1) &
+          ready=0
+          for i in $(seq 1 60); do
+            if [ "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/api/health/)" = "200" ]; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ready" -ne 1 ]; then
+            echo "E0 HTTP service not reachable"
+            tail -40 /tmp/ph-next.log || true
+            tail -40 /tmp/ph-backend.log || true
+            exit 1
+          fi
+          python scripts/e0_smoke.py
+      - name: Remove PostgreSQL container
+        if: always()
+        run: docker rm --force projecthub-ci-postgres >/dev/null 2>&1 || true
+
+  e0-compose:
+    name: E0 Docker Compose integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Prepare short-lived local-only E0 credentials
+        run: |
+          python - <<'PY'
+          import secrets
+          from pathlib import Path
+          keys = ("POSTGRES_ADMIN_PASSWORD", "E0_APP_DB_PASSWORD",
+                  "E0_MIGRATE_DB_PASSWORD", "DJANGO_SECRET_KEY")
+          values = {name: secrets.token_hex(30) for name in keys}
+          for value in values.values():
+              print(f"::add-mask::{value}")
+          Path(".env").write_text(
+              "".join(f"{name}={value}\n" for name, value in values.items()),
+              encoding="utf-8",
+          )
+          PY
+      - name: Build and launch Compose database, migrations, backend and frontend
+        run: docker compose up -d --build --wait --wait-timeout 240
+      - name: Verify real HTTP login, denied access and scoped export
+        run: |
+          ready=0
+          for i in $(seq 1 60); do
+            if [ "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/api/health/)" = "200" ]; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ready" -ne 1 ]; then
+            echo "Compose E0 did not return a healthy 200"
+            exit 1
+          fi
+          python scripts/e0_smoke.py
+      - name: Display bounded container diagnostics on failure
+        if: failure()
+        run: docker compose ps && docker compose logs --tail=35 || true
+      - name: Remove synthetic environment and volumes
+        if: always()
+        run: docker compose down --volumes --remove-orphans

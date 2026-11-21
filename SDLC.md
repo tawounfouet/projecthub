@@ -12,7 +12,7 @@ Ce document est une carte de navigation du cycle de vie ProjectHub. Il distingue
 | Agents OpenCode | Définitions versionnées dans `.agents/` et adaptateurs `.opencode/` | Tests d'intégration à réaliser avant revendication d'exécution |
 | CI de qualité documentaire | Workflow et validateur fusionnés sur `main` via la [PR #14](https://github.com/tawounfouet/projecthub/pull/14) | [Run post-fusion réussi](https://github.com/tawounfouet/projecthub/actions/runs/44860486972) au SHA `547c684` |
 | Décision d'architecture pré-E0 | Autorités à nommer ; `ADR-0004/0005/0019` proposés | [Issue ACT-03 #13](https://github.com/tawounfouet/projecthub/issues/13) et [registre de mandat](docs/07-architecture/02-architecture-authority-register.md) |
-| Expérimentation E0 synthétique | [PR #15](https://github.com/tawounfouet/projecthub/pull/15) ouverte; POC PostgreSQL RLS, essais synthétiques, CI réussie | [Run E0](https://github.com/tawounfouet/projecthub/actions/runs/44862485190) et [run documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44862485329) au SHA `cd9e285`; aucune décision ADR ni GO E0 |
+| Expérimentation E0 synthétique | [PR #15](https://github.com/tawounfouet/projecthub/pull/15) ouverte; POC PostgreSQL RLS, essais synthétiques, CI réussie | [run E0 le plus récent validé](https://github.com/tawounfouet/projecthub/actions/runs/44869435535) et [run documentaire](https://github.com/tawounfouet/projecthub/actions/runs/44869435189) au SHA `e39532a`; aucune décision ADR ni GO E0 |
 | Pilote E1 | `NO-GO` | Autorisations et huit gates à démontrer séparément |
 
 **Référence Git :** [commit de `main` après PR #12](https://github.com/tawounfouet/projecthub/commit/f20ab25f27c4f7e5d91def4319e9cf66bbdccdde). Ce SHA est un **repère historique**, pas l'affirmation que `main` ne changera plus.
@@ -29,7 +29,7 @@ Audit P0      Correction P0      Fixtures CI        PR + approbation   Fusion d�
                    Docs, CI, ADR                         Aucun service E0
 ```
 
-Les PR #12 et #14 sont **fusionnées**. La PR #15 reste en revue et ses essais synthétiques ne constituent pas une autorisation E0. Le mot `DEPLOY` signifie ici intégration documentaire ou démarrage local d'une stack de démonstration : aucun service de production n'est déployé.
+Les PR #12, #14 et #17 sont **fusionnées** (la #17 publie uniquement une proposition de gouvernance). La PR #15 reste en revue et ses essais synthétiques ne constituent pas une autorisation E0. Le mot `DEPLOY` signifie ici intégration documentaire ou démarrage local d'une stack de démonstration : aucun service de production n'est déployé.
 
 ## 3. Remédiation post-PR #12
 
@@ -43,6 +43,9 @@ Les PR #12 et #14 sont **fusionnées**. La PR #15 reste en revue et ses essais s
 `ACT-01` et `ACT-02` sont intégrés sur `main` après PR #14. Le POC RLS et des tests synthétiques exécutés dans PR #15 n'approuvent pas `ADR-0004/0005/0019`, ne remplacent pas GOV-04 et ne signent pas un GO E0.
 
 ## 4. Commandes de vérification
+
+Pour le lot expérimental E0, suivre le [runbook local](E0.md) et la [CI d'intégration](.github/workflows/e0-foundation.yml). Les tests visent des Organizations fictives ; ils ne donnent pas un GO officiel ni une autorisation de traiter des données réelles.
+
 
 À la racine du clone, après installation des dépendances Python du lot CI :
 

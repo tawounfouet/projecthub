@@ -1,6 +1,6 @@
 # 07 - Architecture & Engineering
 
-Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de **ProjectHub Architecture & Engineering Baseline V1.0**. Aucun ADR n'est considéré comme approuvé. Un POC RLS et un sous-ensemble de tests E0 synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15), toujours en attente de revue; ces preuves ne valent pas GO officiel E0 ni livraison sur `main`.
+Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de **ProjectHub Architecture & Engineering Baseline V1.0**. Aucun ADR n'est considéré comme approuvé. Un POC RLS et un sous-ensemble de tests E0 synthétiques ont été exécutés dans la [PR #15](https://github.com/tawounfouet/projecthub/pull/15); ces preuves ne valent ni approbation ADR ni GO officiel E0, même si le code candidat est intégré au dépôt.
 
 ## Documents
 
@@ -10,7 +10,9 @@ Ce dossier regroupe les plans d'arbitrage et la baseline technique candidate de 
 | [ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md](ProjectHub-Architecture-Engineering-Baseline-V1.0-2026-11-21.md) | **Édition exhaustive conservée intégralement**, 1 815 lignes, classée `public` depuis `PH-DEC-019`, toujours `DRAFT / PROPOSED - NOT APPROVED` |
 | [01-documentation-quality-ci-plan.md](01-documentation-quality-ci-plan.md) | **Plan public de qualité documentaire**, `draft`, workflow et validateur intégrés dans `main` via la PR #14 |
 | [02-architecture-authority-register.md](02-architecture-authority-register.md) | **Registre des autorités pré-E0**, `draft`, cumul opérationnel proposé, actes à formaliser et revue indépendante GOV-04 `PENDING` |
-| [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Comparaison RLS et sous-ensemble de tests, preuves CI réussies; revue et décisions humaines en attente |
+| [03-adr-0019-rls-poc-decision.md](03-adr-0019-rls-poc-decision.md) | **Comparatif POC PostgreSQL RLS**, R-2 recommandé mais `PROPOSED`, [issue #16](https://github.com/tawounfouet/projecthub/issues/16) |
+| [Bilan d'exécution P1](../reports/2026-11-21-p1-e0-rls-execution.md) | Tests PostgreSQL, Django, Next.js et Compose avec preuves CI |
+| [POC et tests E0 synthétiques](https://github.com/tawounfouet/projecthub/pull/15) | Expérimentation sur deux Organizations fictives, sans GO officiel E0 |
 
 ## Décision de publication
 
