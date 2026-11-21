@@ -95,10 +95,10 @@ La politique documentaire demeure la source de vérité sur les classifications 
 | `docs/README.md` et `docs/**/README.md` | Liens et images ; frontmatter non obligatoire |
 | `docs/**/*.md`, sauf `README.md` | Frontmatter, champs requis, IDs documentaires et liens |
 | `docs/**/assets/*`, `docs/assets/*` | Existence des cibles d'images et casse des noms |
-| `.github/workflows/docs-quality.yml` | Workflow de référence proposé, à créer plus tard |
-| `scripts/docs_quality.py` | Validateur proposé, à créer plus tard |
-| `docs/quality/requirements.txt` | Dépendances du validateur proposées, à créer plus tard |
-| `docs/quality/fixtures/` | Cas attendus et cas invalides proposés |
+| `.github/workflows/docs-quality.yml` | Implémenté en branche P0 ; vérifié par un run de PR, pas encore fusionné sur `main` |
+| `scripts/docs_quality.py` | Validateur hors réseau implémenté en branche P0 |
+| `docs/quality/requirements.txt` | Dépendances Python à versions fixées présentes en branche P0 |
+| `tests/test_docs_quality.py` | 14 tests positifs et négatifs sur fixtures synthétiques en répertoire temporaire |
 
 **Ne pas appliquer** le schéma de frontmatter aux README ni au code, aux images, aux fichiers YAML GitHub et aux sources privées situées hors dépôt.
 
@@ -198,7 +198,7 @@ Pour chaque registre, le script doit :
 
 **Exemple :** deux citations de `PH-OPEN-007` dans un paragraphe ne sont **pas** deux questions. Une plage `PH-REQ-001..009` n'est pas neuf enregistrements individuels. C'est une erreur d'utiliser `len(re.findall(...))` sur tout le fichier pour prouver la continuité.
 
-## 8. Esquisse d'arborescence de mise en oeuvre
+## 8. Esquisse historique d'arborescence de mise en oeuvre
 
 ```text
 projecthub/
